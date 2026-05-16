@@ -96,6 +96,15 @@ body {
     display: block;
 }
 
+.back-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .right-sidebar {
     position: fixed;
     top: 0;
