@@ -240,6 +240,13 @@ body {
     flex-shrink: 0;
 }
 
+.card-link {
+    display: flex;
+    color: inherit;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
 
 .chat-bot {
     position: fixed;
