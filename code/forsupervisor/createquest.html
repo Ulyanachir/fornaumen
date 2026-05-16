@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naumen - Конструктор квеста</title>
+    <link rel="stylesheet" href="createquest.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="top-bar">
+            <div class="logo">NAUMEN</div>
+            <div class="top-right">
+                <div class="profile-pill">
+                    <div class="avatar-circle"></div>
+                    <span>Мой профиль</span>
+                </div>
+                <button class="icon-btn"><i class="fa-regular fa-rectangle-list"></i></button>
+                <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="right-sidebar" id="sideMenu">
+            <button class="close-menu-btn" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><i class="fa-solid fa-users" style="color: var(--orange);"></i> Справочник сотрудников</li>
+                    <li><i class="fa-solid fa-comment-dots"></i> Чат с NaumAI</li>
+                    <li><i class="fa-solid fa-circle-question"></i> Справка</li>
+                    <li><i class="fa-solid fa-gear"></i> Настройки сервиса</li>
+                </ul>
+                <div class="logout-item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-layout">
+            <main class="content-area">
+                
+                <div class="back-link-wrapper">
+                    <a href="#" class="back-link"><i class="fa-solid fa-arrow-left"></i> К списку квестов</a>
+                </div>
+
+                <div class="page-header">
+                    <h1>Конструктор квеста</h1>
+                    <p class="subtitle">Создавайте этапы и задания для адаптации новых сотрудников</p>
+                </div>
+
+                <div class="constructor-grid">
+                    
+                    <div class="col-structure">
+                        <h3 class="col-title">Структура квеста</h3>
+                        
+                        <div class="structure-item active">
+
+                            <div class="step-card">
+                                <div class="step-number-box">1</div>
+                                <div class="step-content">
+                                    <div class="step-name-row">
+                                        <span class="step-name">Знакомство с политикой</span>
+                                    </div>
+                                    <div class="step-count">8 заданий</div>
+                                </div>
+                                <div class="step-arrow"></div>
+                            </div>
+                        </div>
+
+                        <button class="btn-add-step">
+                            <i class="fa-solid fa-plus"></i> Добавить этап
+                        </button>
+                    </div>
+
+                    <div class="col-editor">
+                        <div class="editor-header">
+                            <div class="editor-title">
+                                <h3>Этап 1. Знакомство с политикой</h3>
+                                <i class="fa-solid fa-pen edit-icon"></i>
+                            </div>
+                        </div>
+
+                        <div class="editor-count">
+    <div class="count-main">Количество заданий в этапе</div>
+    <span class="count-hint">Выберите от 2 до 8 заданий</span>
+    <div class="select-wrapper small">
+        <select class="count-select">
+            <option value="2">2 задания</option>
+            <option value="3">3 задания</option>
+            <option value="4">4 задания</option>
+            <option value="5">5 заданий</option>
+            <option value="6">6 заданий</option>
+            <option value="7">7 заданий</option>
+            <option value="8" selected>8 заданий</option>
+        </select>
+    </div>
+</div>
+
+                        <div class="editor-tasks">
+                            <div class="tasks-label">
+                                <span>Задания этапа</span>
+                                <span class="tasks-hint">Перетащите задания, чтобы изменить порядок</span>
+                            </div>
+
+                            <div class="task-list">
+                                <div class="task-item">
+                                    <div class="task-drag"><i class="fa-solid fa-grip-vertical"></i></div>
+                                    <div class="task-icon orange"><i class="fa-regular fa-comment"></i></div>
+                                    <div class="task-name">Знакомство с сервисом</div>
+                                    <div class="task-more"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                                </div>
+
+                                <div class="task-item">
+                                    <div class="task-drag"><i class="fa-solid fa-grip-vertical"></i></div>
+                                    <div class="task-icon orange"><i class="fa-solid fa-user-group"></i></div>
+                                    <div class="task-name">Встреча с ментором</div>
+                                    <div class="task-more"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                                </div>
+
+                                <div class="task-item">
+                                    <div class="task-drag"><i class="fa-solid fa-grip-vertical"></i></div>
+                                    <div class="task-icon orange"><i class="fa-regular fa-heart"></i></div>
+                                    <div class="task-name">Корпоративные ценности</div>
+                                    <div class="task-more"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                                </div>
+
+                                <div class="task-item">
+                                    <div class="task-drag"><i class="fa-solid fa-grip-vertical"></i></div>
+                                    <div class="task-icon orange"><i class="fa-solid fa-user-check"></i></div>
+                                    <div class="task-name">Проведение с офисом</div>
+                                    <div class="task-more"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                                </div>
+
+                                <div class="task-item">
+                                    <div class="task-drag"><i class="fa-solid fa-grip-vertical"></i></div>
+                                    <div class="task-icon orange"><i class="fa-solid fa-shield-halved"></i></div>
+                                    <div class="task-name">Политики ИБ</div>
+                                    <div class="task-more"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                                </div>
+
+                                <div class="task-item">
+                                    <div class="task-drag"><i class="fa-solid fa-grip-vertical"></i></div>
+                                    <div class="task-icon orange"><i class="fa-solid fa-code"></i></div>
+                                    <div class="task-name">Технический стек</div>
+                                    <div class="task-more"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                                </div>
+
+                                <div class="task-item">
+                                    <div class="task-drag"><i class="fa-solid fa-grip-vertical"></i></div>
+                                    <div class="task-icon orange"><i class="fa-solid fa-shield-halved"></i></div>
+                                    <div class="task-name">Принятие в команду</div>
+                                    <div class="task-more"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                                </div>
+
+                                <div class="task-item">
+                                    <div class="task-drag"><i class="fa-solid fa-grip-vertical"></i></div>
+                                    <div class="task-icon orange"><i class="fa-regular fa-flag"></i></div>
+                                    <div class="task-name">Контрольная точка</div>
+                                    <div class="task-more"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                                </div>
+                            </div>
+
+                            <button class="btn-add-task">
+                                <i class="fa-solid fa-plus"></i> Добавить задание
+                                <span class="add-hint">Минимум 2, максимум 8 заданий</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-properties">
+                        <h3 class="col-title">Свойства квеста</h3>
+
+                        <div class="prop-group">
+                            <label>Название квеста</label>
+                            <input type="text" placeholder="Введите название квеста" class="prop-input">
+                        </div>
+
+                        <div class="prop-group">
+                            <label>Описание (необязательно)</label>
+                            <textarea class="prop-textarea" rows="3" placeholder="Введите описание этапа"></textarea>
+                        </div>
+
+                        <div class="prop-group">
+                            <label>Цвет квеста</label>
+                            <div class="color-picker">
+                                <div class="color-dot orange active"></div>
+                                <div class="color-dot green"></div>
+                                <div class="color-dot blue"></div>
+                                <div class="color-dot purple"></div>
+                                <div class="color-dot pink"></div>
+                                <div class="color-dot gray"></div>
+                            </div>
+                        </div>
+
+                        <div class="prop-group">
+                            <label>Назначить сотруднику</label>
+                            <div class="search-input-wrapper">
+                                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                                <input type="text" placeholder="Поиск сотрудника" class="filter-input">
+                            </div>
+                        </div>
+
+                        <button class="btn-create">Создать квест</button>
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
+
+        <div class="chat-bot">
+            <div class="bot-bubble">
+                <h4>NaumAI <span class="wave">👋</span></h4>
+                <p>Привет! Я NaumAI<br>Готов помочь на старте.<br>Задай вопрос в чате.</p>
+            </div>
+            <div class="bot-avatar">
+                <div class="bot-head"></div>
+                <div class="bot-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeMenuFunc() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+    </script>
+
+</body>
+</html>
