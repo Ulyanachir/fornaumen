@@ -237,6 +237,23 @@
         menuToggle.addEventListener('click', openMenu);
         closeMenu.addEventListener('click', closeMenuFunc);
         overlay.addEventListener('click', closeMenuFunc);
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const from = urlParams.get('from');
+
+        // Находим ссылку "К главному меню"
+        const backLink = document.querySelector('.back-link');
+
+        // Устанавливаем правильный адрес для возврата
+        if (backLink) {
+        if (from === 'curator') {
+            backLink.href = 'quest2.html';
+        } else if (from === 'newemployee') {
+            backLink.href = 'quest1.html';
+        } else {
+            backLink.href = 'quest1.html'; // По умолчанию
+        }
+    }
     </script>
 
 </body>
