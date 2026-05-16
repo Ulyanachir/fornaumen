@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naumen - Добавление сотрудника</title>
+    <link rel="stylesheet" href="createworker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="top-bar">
+            <div class="logo">NAUMEN</div>
+            <div class="top-right">
+                <div class="profile-pill">
+                    <div class="avatar-circle"></div>
+                    <span>Мой профиль</span>
+                </div>
+                <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+                <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="right-sidebar" id="sideMenu">
+            <button class="close-menu-btn" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><i class="fa-solid fa-users"></i> Справочник сотрудников</li>
+                    <li><i class="fa-solid fa-comment-dots"></i> Чат с NaumAI</li>
+                    <li><i class="fa-solid fa-circle-question"></i> Справка</li>
+                    <li><i class="fa-solid fa-gear"></i> Настройки сервиса</li>
+                </ul>
+                <div class="logout-item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-layout">
+            <main class="content-area">
+
+                <div class="page-top">
+                    <a href="#" class="back-link"><i class="fa-solid fa-arrow-left"></i> К главному меню</a>
+                    <h1>Добавление сотрудника</h1>
+                    <p class="subtitle">Создайте учетную запись сотрудника. Он сможет войти в систему только с выданным логином и паролем.</p>
+                </div>
+
+                <div class="form-wrapper">
+                    
+                    <div class="form-column">
+                        <h2 class="column-title">Информация о сотруднике</h2>
+                        
+                        <div class="form-group">
+                            <label>ФИО сотрудника <span class="required">*</span></label>
+                            <input type="text" placeholder="Введите ФИО" class="form-input error-border">
+                            <span class="error-text">Обязательное поле</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Должность <span class="required">*</span></label>
+                            <input type="text" placeholder="Введите должность" class="form-input error-border">
+                            <span class="error-text">Обязательное поле</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Подразделение <span class="required">*</span></label>
+                            <input type="text" placeholder="Введите подразделение" class="form-input error-border">
+                            <span class="error-text">Обязательное поле</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email (необязательно)</label>
+                            <input type="email" placeholder="Введите email" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Телефон (необязательно)</label>
+                            <input type="tel" placeholder="+7 (___) ___-__-__" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Роль в системе</label>
+                            <div class="select-wrapper">
+                                <select class="form-select">
+                                    <option>Сотрудник</option>
+                                    <option>Куратор</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="info-box light-blue">
+                            <i class="fa-regular fa-circle-check"></i>
+                            <span>Сотрудник будет иметь доступ только к своим заданиям и квестам, назначенным куратором.</span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-column">
+                        <h2 class="column-title">Данные для входа в систему</h2>
+
+                        <div class="info-box light-orange">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                            <div>
+                                <strong>Сотрудник сможет войти в систему только с логином и паролем.</strong>
+                                <span style="font-size: 12px; color: #666;">Других способов входа не предусмотрено.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Логин <span class="required">*</span></label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">naumen.</span>
+                                <input type="text" placeholder="Введите логин" class="form-input">
+                            </div>
+                            <span class="hint-text">Логин должен быть уникальным. Используйте латиницу, цифры и символы _ -</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Пароль <span class="required">*</span></label>
+                            <input type="password" placeholder="Введите пароль" class="form-input error-border">
+                            <span class="error-text">Обязательное поле</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Подтвердите пароль <span class="required">*</span></label>
+                            <input type="password" placeholder="Повторите пароль" class="form-input error-border">
+                            <span class="error-text">Обязательное поле</span>
+                        </div>
+
+                        <div class="info-box light-orange">
+                            <h4 style="margin-bottom: 10px; font-size: 14px;">Как сотрудник войдет в систему?</h4>
+                            <ol style="font-size: 13px; color: #444; padding-left: 15px; line-height: 1.6;">
+                                <li>Куратор передает сотруднику логин и пароль.</li>
+                                <li>Сотрудник переходит на страницу входа.</li>
+                                <li>Вводит логин и пароль.</li>
+                                <li>Получает доступ к своим заданиям и материалам.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+
+                    <div class="form-column">
+                        <h2 class="column-title">Назначить квест сотруднику</h2>
+
+                        <div class="form-group">
+                            <label>Выберите квест</label>
+                            <div class="select-wrapper">
+                                <select class="form-select">
+                                    <option>Выберите квест</option>
+                                    <option>Квест 1</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Назначить с даты <span class="required">*</span></label>
+                            <input type="date" class="form-input error-border">
+                            <span class="error-text">Обязательное поле</span>
+                        </div>
+
+                        <div class="info-box light-blue">
+                            <i class="fa-regular fa-circle-check"></i>
+                            <span>Сотрудник получит доступ к квесту с выбранной даты.</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn-cancel">Отмена</button>
+                    <button class="btn-primary">Создать сотрудника</button>
+                </div>
+
+            </main>
+        </div>
+
+        <div class="chat-bot">
+            <div class="bot-bubble">
+                <h4>NaumAI <span class="wave">👋</span></h4>
+                <p>Привет! Я NaumAI<br>Готов помочь на старте.<br>Задай вопрос в чате.</p>
+            </div>
+            <div class="bot-avatar">
+                <div class="bot-head"></div>
+                <div class="bot-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeMenuFunc() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+    </script>
+
+</body>
+</html>
