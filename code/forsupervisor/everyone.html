@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naumen - Все сотрудники</title>
+    <link rel="stylesheet" href="everyone.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="top-bar">
+            <div class="logo">NAUMEN</div>
+            <div class="top-right">
+                <div class="profile-pill">
+                    <div class="avatar-circle"></div>
+                    <span>Мой профиль</span>
+                </div>
+                <button class="icon-btn"><i class="fa-regular fa-rectangle-list"></i></button>
+                <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+      
+        <div class="overlay" id="overlay"></div>
+
+
+        <div class="right-sidebar" id="sideMenu">
+            <button class="close-menu-btn" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><i class="fa-solid fa-users" style="color: var(--orange);"></i> Справочник сотрудников</li>
+                    <li><i class="fa-solid fa-comment-dots"></i> Чат с NaumAI</li>
+                    <li><i class="fa-solid fa-circle-question"></i> Справка</li>
+                    <li><i class="fa-solid fa-gear"></i> Настройки сервиса</li>
+                </ul>
+                <div class="logout-item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-layout">
+
+            <main class="content-area">
+                
+  
+                <div class="back-link-wrapper">
+                    <a href="#" class="back-link"><i class="fa-solid fa-arrow-left"></i> К главному меню</a>
+                </div>
+
+                <div class="page-header">
+                    <h1>Все сотрудники</h1>
+                    <p class="subtitle">Просматривайте список сотрудников, их прогресс по адаптации и назначенные квесты.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                        <div class="stat-content">
+                            <div class="stat-number">24</div>
+                            <div class="stat-label">Всего сотрудников</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange"><i class="fa-regular fa-clock"></i></div>
+                        <div class="stat-content">
+                            <div class="stat-number">18</div>
+                            <div class="stat-label">В процессе адаптации</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="fa-regular fa-circle-check"></i></div>
+                        <div class="stat-content">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Завершили адаптацию</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon gray"><i class="fa-regular fa-clock"></i></div>
+                        <div class="stat-content">
+                            <div class="stat-number">1</div>
+                            <div class="stat-label">Не начали адаптацию</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-with-sidebar">
+                    
+                    <div class="filters-column">
+                        <div class="filters-header">
+                            <h3>Фильтры</h3>
+                            <a href="#" class="reset-link">Сбросить</a>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Поиск сотрудника</label>
+                            <div class="search-input-wrapper">
+                                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                                <input type="text" placeholder="Введите ФИО или должность" class="filter-input">
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Подразделение</label>
+                            <div class="select-wrapper">
+                                <select class="filter-select">
+                                    <option>Все подразделения</option>
+                                    <option>Отдел продаж</option>
+                                    <option>IT-отдел</option>
+                                    <option>HR-отдел</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Должность</label>
+                            <div class="select-wrapper">
+                                <select class="filter-select">
+                                    <option>Все должности</option>
+                                    <option>Менеджер</option>
+                                    <option>Разработчик</option>
+                                    <option>Аналитик</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Статус адаптации</label>
+                            <div class="select-wrapper">
+                                <select class="filter-select">
+                                    <option>Все статусы</option>
+                                    <option>В процессе</option>
+                                    <option>Завершено</option>
+                                    <option>Не начато</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Квест</label>
+                            <div class="select-wrapper">
+                                <select class="filter-select">
+                                    <option>Все квесты</option>
+                                    <option>Знакомство с политикой</option>
+                                    <option>Технический стек</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="btn-apply">Применить</button>
+                    </div>
+
+                    <div class="table-column">
+                        <div class="table-header">
+                            <div class="th">Сотрудник</div>
+                            <div class="th">Должность</div>
+                            <div class="th">Подразделение</div>
+                            <div class="th">Назначенный квест</div>
+                            <div class="th">Прогресс адаптации</div>
+                            <div class="th">Статус</div>
+                        </div>
+
+                        <div class="table-body">
+
+                            <div class="table-row">
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">ИИ</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Иванов И.И.</div>
+                                        <div class="emp-email">ivanov@company.ru</div>
+                                    </div>
+                                </div>
+                                <div class="td">Менеджер по продажам</div>
+                                <div class="td">Отдел продаж</div>
+                                <div class="td">Знакомство с политикой</div>
+                                <div class="td progress">
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" style="width: 75%;"></div>
+                                    </div>
+                                    <div class="progress-text">75%<br><span class="small">6 из 8 шагов</span></div>
+                                </div>
+                                <div class="td"><span class="status-badge orange">В процессе</span></div>
+                            </div>
+
+                            <div class="table-row">
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">ПА</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Петрова А.С.</div>
+                                        <div class="emp-email">petrova@company.ru</div>
+                                    </div>
+                                </div>
+                                <div class="td">HR-специалист</div>
+                                <div class="td">HR-отдел</div>
+                                <div class="td">Знакомство с политикой</div>
+                                <div class="td progress">
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" style="width: 50%;"></div>
+                                    </div>
+                                    <div class="progress-text">50%<br><span class="small">4 из 8 шагов</span></div>
+                                </div>
+                                <div class="td"><span class="status-badge orange">В процессе</span></div>
+                            </div>
+
+                            <div class="table-row">
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">СА</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Сидоров А.Д.</div>
+                                        <div class="emp-email">sidorov@company.ru</div>
+                                    </div>
+                                </div>
+                                <div class="td">Разработчик</div>
+                                <div class="td">IT-отдел</div>
+                                <div class="td">Знакомство с политикой</div>
+                                <div class="td progress">
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" style="width: 25%;"></div>
+                                    </div>
+                                    <div class="progress-text">25%<br><span class="small">2 из 8 шагов</span></div>
+                                </div>
+                                <div class="td"><span class="status-badge orange">В процессе</span></div>
+                            </div>
+
+                            <div class="table-row">
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">КМ</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Кузнецова М.О.</div>
+                                        <div class="emp-email">kuznetsova@company.ru</div>
+                                    </div>
+                                </div>
+                                <div class="td">Маркетолог</div>
+                                <div class="td">Отдел маркетинга</div>
+                                <div class="td">Знакомство с политикой</div>
+                                <div class="td progress">
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" style="width: 100%;"></div>
+                                    </div>
+                                    <div class="progress-text">100%<br><span class="small">8 из 8 шагов</span></div>
+                                </div>
+                                <div class="td"><span class="status-badge green">Завершено</span></div>
+                            </div>
+                          
+                            <div class="table-row">
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">ВД</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Волков Д.А.</div>
+                                        <div class="emp-email">volkov@company.ru</div>
+                                    </div>
+                                </div>
+                                <div class="td">Тестировщик</div>
+                                <div class="td">IT-отдел</div>
+                                <div class="td">Знакомство с политикой</div>
+                                <div class="td progress">
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" style="width: 38%;"></div>
+                                    </div>
+                                    <div class="progress-text">38%<br><span class="small">3 из 8 шагов</span></div>
+                                </div>
+                                <div class="td"><span class="status-badge orange">В процессе</span></div>
+                            </div>
+
+                            <div class="table-row">
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">СЕ</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Смирнова Е.В.</div>
+                                        <div class="emp-email">smirnova@company.ru</div>
+                                    </div>
+                                </div>
+                                <div class="td">Аналитик</div>
+                                <div class="td">Отдел аналитики</div>
+                                <div class="td">Знакомство с политикой</div>
+                                <div class="td progress">
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" style="width: 0%;"></div>
+                                    </div>
+                                    <div class="progress-text">0%<br><span class="small">0 из 8 шагов</span></div>
+                                </div>
+                                <div class="td"><span class="status-badge gray">Не начато</span></div>
+                            </div>
+
+                            <div class="table-row">
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">КП</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Ковалев П.В.</div>
+                                        <div class="emp-email">kovalev@company.ru</div>
+                                    </div>
+                                </div>
+                                <div class="td">Системный администратор</div>
+                                <div class="td">IT-отдел</div>
+                                <div class="td">Знакомство с политикой</div>
+                                <div class="td progress">
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" style="width: 63%;"></div>
+                                    </div>
+                                    <div class="progress-text">63%<br><span class="small">5 из 8 шагов</span></div>
+                                </div>
+                                <div class="td"><span class="status-badge orange">В процессе</span></div>
+                            </div>
+
+                            <div class="table-row">
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">ФН</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Федорова Н.А.</div>
+                                        <div class="emp-email">fedorova@company.ru</div>
+                                    </div>
+                                </div>
+                                <div class="td">Бухгалтер</div>
+                                <div class="td">Финансовый отдел</div>
+                                <div class="td">Знакомство с политикой</div>
+                                <div class="td progress">
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" style="width: 88%;"></div>
+                                    </div>
+                                    <div class="progress-text">88%<br><span class="small">7 из 8 шагов</span></div>
+                                </div>
+                                <div class="td"><span class="status-badge orange">В процессе</span></div>
+                            </div>
+                        </div>
+                      
+                        <div class="pagination-wrapper">
+                            <span class="pagination-text">Показано 1–8 из 24 сотрудников</span>
+                            <div class="pagination-controls">
+                                <button class="page-btn arrow-only">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+
+        <div class="chat-bot">
+            <div class="bot-bubble">
+                <h4>NaumAI <span class="wave">👋</span></h4>
+                <p>Привет! Я NaumAI<br>Готов помочь на старте.<br>Задай вопрос в чате.</p>
+            </div>
+            <div class="bot-avatar">
+                <div class="bot-head"></div>
+                <div class="bot-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeMenuFunc() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+    </script>
+
+</body>
+</html>
