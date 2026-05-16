@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naumen - Панель сотрудника</title>
+    <link rel="stylesheet" href="quest.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="top-bar">
+            <div class="logo">NAUMEN</div>
+            <div class="top-right">
+                <div class="profile-pill">
+                    <div class="avatar-circle"></div>
+                    <span>Мой профиль</span>
+                </div>
+                <button class="icon-btn"><i class="fa-regular fa-rectangle-list"></i></button>
+                <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+      
+        <div class="overlay" id="overlay"></div>
+        <div class="right-sidebar" id="sideMenu">
+            <button class="close-menu-btn" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><i class="fa-solid fa-users"></i> Справочник сотрудников</li>
+                    <li><i class="fa-solid fa-comment-dots"></i> Чат с NaumAI</li>
+                    <li><i class="fa-solid fa-circle-question"></i> Справка</li>
+                    <li><i class="fa-solid fa-gear"></i> Настройки сервиса</li>
+                </ul>
+                <div class="logout-item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-layout">
+            <main class="content-area">
+                
+                <div class="progress-card">
+                    <div class="progress-header">Текущий прогресс: 35%</div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 35%;"></div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Знакомство с политикой</h2>
+                <div class="quest-grid">
+                    <div class="quest-item">
+                        <button class="orange-btn">01</button>
+                        <div class="quest-label">Знакомство<br>с сервисом</div>
+                    </div>
+                    <div class="quest-item">
+                        <button class="orange-btn">02</button>
+                        <div class="quest-label">Встреча<br>с ментором</div>
+                    </div>
+                    <div class="quest-item">
+                        <button class="orange-btn">03</button>
+                        <div class="quest-label">Корпоративные<br>ценности</div>
+                    </div>
+                    <div class="quest-item">
+                        <button class="orange-btn">04</button>
+                        <div class="quest-label">Проведение<br>с офисом</div>
+                    </div>
+                    <div class="quest-item">
+                        <button class="orange-btn">05</button>
+                        <div class="quest-label">Политики<br>ИБ</div>
+                    </div>
+                    <div class="quest-item">
+                        <button class="orange-btn">06</button>
+                        <div class="quest-label">Технический<br>стек</div>
+                    </div>
+                    <div class="quest-item">
+                        <button class="gray-btn">07</button>
+                        <div class="quest-label">Принятие<br>в команду</div>
+                    </div>
+                    <div class="quest-item">
+                        <button class="gray-btn">08</button>
+                        <div class="quest-label">Контрольная<br>точка</div>
+                    </div>
+                </div>
+
+
+                <div class="next-btn-wrapper">
+                    <button class="circle-arrow"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <div class="tasks-center-wrapper">
+                    <div class="tasks-card">
+                        <div class="tasks-header">
+                            <h3>Ближайшие задания</h3>
+                            <i class="fa-solid fa-chevron-up"></i>
+                        </div>
+                        <div class="task-row">
+                            <div class="task-info">
+                                <i class="fa-regular fa-folder-open task-icon"></i>
+                                <span>Пройти модуль "Коммуникации"</span>
+                            </div>
+                            <span class="tag-required">Обязательное</span>
+                            <input type="checkbox" class="task-check">
+                        </div>
+                        <div class="task-row">
+                            <div class="task-info">
+                                <i class="fa-regular fa-calendar task-icon"></i>
+                                <span>Встреча с HR (запланировано на 14:00)</span>
+                            </div>
+                            <span class="tag-planned">Запланировано</span>
+                            <input type="checkbox" class="task-check">
+                        </div>
+                        <div class="tasks-footer">
+                            <a href="#" class="all-tasks-link">Все задания <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+        <div class="chat-bot">
+            <div class="bot-bubble">
+                <h4>NaumAI <span class="wave">👋</span></h4>
+                <p>Привет! Я NaumAI<br>Готов помочь на старте.<br>Задай вопрос в чате.</p>
+            </div>
+            <div class="bot-avatar">
+                <div class="bot-head"></div>
+                <div class="bot-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeMenuFunc() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+    </script>
+
+</body>
+</html>
