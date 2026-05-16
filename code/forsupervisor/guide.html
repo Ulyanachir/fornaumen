@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naumen - Справочник сотрудников</title>
+    <link rel="stylesheet" href="guide.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="top-bar">
+            <div class="logo">NAUMEN</div>
+            <div class="top-right">
+                <div class="profile-pill">
+                    <div class="avatar-circle"></div>
+                    <span>Мой профиль</span>
+                </div>
+                <button class="icon-btn"><i class="fa-regular fa-rectangle-list"></i></button>
+                <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="right-sidebar" id="sideMenu">
+            <button class="close-menu-btn" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><i class="fa-solid fa-users" style="color: var(--orange);"></i> Справочник сотрудников</li>
+                    <li><i class="fa-solid fa-comment-dots"></i> Чат с NaumAI</li>
+                    <li><i class="fa-solid fa-circle-question"></i> Справка</li>
+                    <li><i class="fa-solid fa-gear"></i> Настройки сервиса</li>
+                </ul>
+                <div class="logout-item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-layout">
+            <main class="content-area">
+                
+                <h1 class="page-title">Справочник сотрудников</h1>
+
+                <div class="search-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Поиск по имени, должности или подразделению" class="search-input">
+                </div>
+
+                <div class="filter-row">
+                    <div class="select-wrapper">
+                        <select class="filter-select">
+                            <option>Подразделение</option>
+                        </select>
+                    </div>
+                    <div class="select-wrapper">
+                        <select class="filter-select">
+                            <option>Должность</option>
+                        </select>
+                    </div>
+                    <div class="select-wrapper">
+                        <select class="filter-select">
+                            <option>Город</option>
+                        </select>
+                    </div>
+                    <button class="btn-reset">Сбросить</button>
+                </div>
+
+                <div class="employee-list-container">
+                    
+                    <div class="employee-card">
+                        <div class="emp-card-left">
+                            <div class="emp-avatar-placeholder">ИА</div>
+                            <div class="emp-details">
+                                <div class="emp-name">Иванова Анна Сергеевна</div>
+                                <div class="emp-role">Руководитель проектов</div>
+                                <div class="emp-dept">Отдел внедрения</div>
+                            </div>
+                        </div>
+                        <div class="emp-card-right">
+                            <div class="emp-info-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Москва</span>
+                            </div>
+                            <div class="emp-info-item">
+                                <i class="fa-regular fa-envelope"></i>
+                                <span>a.ivanova@naumen.ru</span>
+                            </div>
+                            <div class="emp-actions">
+                                <button class="action-btn-circle"><i class="fa-regular fa-envelope"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="employee-card">
+                        <div class="emp-card-left">
+                            <div class="emp-avatar-placeholder">ПА</div>
+                            <div class="emp-details">
+                                <div class="emp-name">Петров Алексей Дмитриевич</div>
+                                <div class="emp-role">Системный аналитик</div>
+                                <div class="emp-dept">Отдел разработки</div>
+                            </div>
+                        </div>
+                        <div class="emp-card-right">
+                            <div class="emp-info-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Санкт-Петербург</span>
+                            </div>
+                            <div class="emp-info-item">
+                                <i class="fa-regular fa-envelope"></i>
+                                <span>a.petrov@naumen.ru</span>
+                            </div>
+                            <div class="emp-actions">
+                                <button class="action-btn-circle"><i class="fa-regular fa-envelope"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="employee-card">
+                        <div class="emp-card-left">
+                            <div class="emp-avatar-placeholder">СЕ</div>
+                            <div class="emp-details">
+                                <div class="emp-name">Смирнова Екатерина Игоревна</div>
+                                <div class="emp-role">Менеджер по продукту</div>
+                                <div class="emp-dept">Продуктовый отдел</div>
+                            </div>
+                        </div>
+                        <div class="emp-card-right">
+                            <div class="emp-info-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Новосибирск</span>
+                            </div>
+                            <div class="emp-info-item">
+                                <i class="fa-regular fa-envelope"></i>
+                                <span>e.smirnova@naumen.ru</span>
+                            </div>
+                            <div class="emp-actions">
+                                <button class="action-btn-circle"><i class="fa-regular fa-envelope"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="employee-card">
+                        <div class="emp-card-left">
+                            <div class="emp-avatar-placeholder">КМ</div>
+                            <div class="emp-details">
+                                <div class="emp-name">Кузнецов Михаил Сергеевич</div>
+                                <div class="emp-role">DevOps-инженер</div>
+                                <div class="emp-dept">Отдел инфраструктуры</div>
+                            </div>
+                        </div>
+                        <div class="emp-card-right">
+                            <div class="emp-info-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Казань</span>
+                            </div>
+                            <div class="emp-info-item">
+                                <i class="fa-regular fa-envelope"></i>
+                                <span>m.kuznetsov@naumen.ru</span>
+                            </div>
+                            <div class="emp-actions">
+                                <button class="action-btn-circle"><i class="fa-regular fa-envelope"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="employee-card">
+                        <div class="emp-card-left">
+                            <div class="emp-avatar-placeholder">ПО</div>
+                            <div class="emp-details">
+                                <div class="emp-name">Попова Ольга Владимировна</div>
+                                <div class="emp-role">HR-менеджер</div>
+                                <div class="emp-dept">HR-отдел</div>
+                            </div>
+                        </div>
+                        <div class="emp-card-right">
+                            <div class="emp-info-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Екатеринбург</span>
+                            </div>
+                            <div class="emp-info-item">
+                                <i class="fa-regular fa-envelope"></i>
+                                <span>o.popova@naumen.ru</span>
+                            </div>
+                            <div class="emp-actions">
+                                <button class="action-btn-circle"><i class="fa-regular fa-envelope"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="pagination-wrapper">
+                    <span class="pagination-text">Показано 1-5 сотрудников из 30</span>
+                    <button class="pagination-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+            </main>
+        </div>
+
+        <div class="chat-bot">
+            <div class="bot-bubble">
+                <h4>NaumAI <span class="wave">👋</span></h4>
+                <p>Привет! Я NaumAI<br>Готов помочь на старте.<br>Задай вопрос в чате.</p>
+            </div>
+            <div class="bot-avatar">
+                <div class="bot-head"></div>
+                <div class="bot-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeMenuFunc() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+    </script>
+
+</body>
+</html>
