@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naumen - Конструктор квеста</title>
-    <link rel="stylesheet" href="createquest.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -43,7 +43,7 @@
             <main class="content-area">
 
                 <div class="back-link-wrapper">
-                    <a href="quest2.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> К главному меню</a>
+                    <a href="#" class="back-link"><i class="fa-solid fa-arrow-left"></i> К списку квестов</a>
                 </div>
 
                 <div class="page-header">
@@ -52,12 +52,11 @@
                 </div>
 
                 <div class="constructor-grid">
-                    
+
                     <div class="col-structure">
                         <h3 class="col-title">Структура квеста</h3>
-                        
-                        <div class="structure-item active">
 
+                        <div class="structure-item active">
                             <div class="step-card">
                                 <div class="step-number-box">1</div>
                                 <div class="step-content">
@@ -84,20 +83,20 @@
                         </div>
 
                         <div class="editor-count">
-    <div class="count-main">Количество заданий в этапе</div>
-    <span class="count-hint">Выберите от 2 до 8 заданий</span>
-    <div class="select-wrapper small">
-        <select class="count-select">
-            <option value="2">2 задания</option>
-            <option value="3">3 задания</option>
-            <option value="4">4 задания</option>
-            <option value="5">5 заданий</option>
-            <option value="6">6 заданий</option>
-            <option value="7">7 заданий</option>
-            <option value="8" selected>8 заданий</option>
-        </select>
-    </div>
-</div>
+                            <div class="count-main">Количество заданий в этапе</div>
+                            <span class="count-hint">Выберите от 2 до 8 заданий</span>
+                            <div class="select-wrapper small">
+                                <select class="count-select">
+                                    <option value="2">2 задания</option>
+                                    <option value="3">3 задания</option>
+                                    <option value="4">4 задания</option>
+                                    <option value="5">5 заданий</option>
+                                    <option value="6">6 заданий</option>
+                                    <option value="7">7 заданий</option>
+                                    <option value="8" selected>8 заданий</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="editor-tasks">
                             <div class="tasks-label">
@@ -223,6 +222,139 @@
         </div>
     </div>
 
+
+    <div class="modal-overlay" id="createTaskModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Создание задания</h2>
+                <button class="modal-close" id="closeTaskModal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-grid">
+                    <div class="modal-col-left">
+                        <h3 class="modal-subtitle">Выберите тип задания</h3>
+
+                        <div class="task-type-list">
+                            <div class="task-type-item selected">
+                                <div class="task-type-icon"><i class="fa-solid fa-video"></i></div>
+                                <span>1. Запись видео-ответа</span>
+                            </div>
+                            <div class="task-type-item">
+                                <div class="task-type-icon"><i class="fa-solid fa-paperclip"></i></div>
+                                <span>2. Прикрепление файла</span>
+                            </div>
+                            <div class="task-type-item">
+                                <div class="task-type-icon"><i class="fa-solid fa-square-plus"></i></div>
+                                <span>3. Выполнение в среде</span>
+                            </div>
+                            <div class="task-type-item">
+                                <div class="task-type-icon"><i class="fa-solid fa-qrcode"></i></div>
+                                <span>4. Скан QR-кода</span>
+                            </div>
+                            <div class="task-type-item">
+                                <div class="task-type-icon"><i class="fa-solid fa-user-group"></i></div>
+                                <span>5. Встреча с коллегой</span>
+                            </div>
+                            <div class="task-type-item">
+                                <div class="task-type-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                                <span>6. Опрос / выбор варианта</span>
+                            </div>
+                            <div class="task-type-item">
+                                <div class="task-type-icon"><i class="fa-regular fa-clock"></i></div>
+                                <span>7. Задача с таймером</span>
+                            </div>
+                            <div class="task-type-item">
+                                <div class="task-type-icon"><i class="fa-solid fa-arrows-left-right"></i></div>
+                                <span>8. Сопоставление понятий</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-col-right">
+
+                        <div class="form-section">
+                            <h3 class="section-title">Теория (для ознакомления перед заданием)</h3>
+                            <div class="editor-toolbar">
+                                <span class="toolbar-text">Normal</span>
+                                <span class="toolbar-icon"><i class="fa-solid fa-list-ul"></i></span>
+                                <span class="toolbar-icon"><i class="fa-solid fa-bold"></i></span>
+                                <span class="toolbar-icon"><i class="fa-solid fa-italic"></i></span>
+                                <span class="toolbar-icon"><i class="fa-solid fa-underline"></i></span>
+                                <span class="toolbar-icon"><i class="fa-solid fa-list-ol"></i></span>
+                                <span class="toolbar-icon"><i class="fa-solid fa-link"></i></span>
+                            </div>
+                            <textarea class="modal-textarea" placeholder="Введите текст теории..."></textarea>
+                        </div>
+
+                        <div class="form-section-right">
+                            <h3 class="section-title">Обязательное задание</h3>
+                            <div class="toggle-group">
+                                <button class="toggle-btn active">Да</button>
+                                <button class="toggle-btn">Нет</button>
+                            </div>
+                            <div class="checkbox-row">
+                                <input type="checkbox" id="controlPoint" class="modal-checkbox">
+                                <label for="controlPoint">Пометить контрольную точку</label>
+                            </div>
+                        </div>
+
+                        <div class="form-section full-width">
+                            <h3 class="section-title">Настройки задания</h3>
+                            <div class="info-box light-blue">
+                                <i class="fa-regular fa-circle-check"></i>
+                                <span>Новичок должен будет загрузить видео в рамках указанного времени.</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Текст задания</label>
+                                <div class="editor-toolbar">
+                                    <span class="toolbar-text">Normal</span>
+                                    <span class="toolbar-icon"><i class="fa-solid fa-list-ul"></i></span>
+                                    <span class="toolbar-icon"><i class="fa-solid fa-bold"></i></span>
+                                    <span class="toolbar-icon"><i class="fa-solid fa-italic"></i></span>
+                                    <span class="toolbar-icon"><i class="fa-solid fa-underline"></i></span>
+                                    <span class="toolbar-icon"><i class="fa-solid fa-list-ol"></i></span>
+                                    <span class="toolbar-icon"><i class="fa-solid fa-link"></i></span>
+                                </div>
+                                <textarea class="modal-textarea" placeholder="Введите текст задания для новичка..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Максимальная длительность видео</label>
+                                <div class="range-slider-wrapper">
+                                    <div class="range-slider">
+                                        <div class="range-track">
+                                            <div class="range-fill" style="width: 40%;"></div>
+                                            <div class="range-thumb" style="left: 40%;"></div>
+                                        </div>
+                                        <div class="range-labels">
+                                            <span>30 сек</span>
+                                            <span>1 мин</span>
+                                            <span class="active">2 мин</span>
+                                            <span>5 мин</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Комментарий для новичка (необязательно)</label>
+                                <textarea class="modal-textarea small" placeholder="Например: «Расскажи, какую пользу принесёшь компании»"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-cancel" id="cancelTask">Отмена</button>
+                <button class="btn-primary">Создать задание</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const closeMenu = document.getElementById('closeMenu');
@@ -242,6 +374,39 @@
         menuToggle.addEventListener('click', openMenu);
         closeMenu.addEventListener('click', closeMenuFunc);
         overlay.addEventListener('click', closeMenuFunc);
+
+        const addTaskBtn = document.querySelector('.btn-add-task');
+        const modalOverlay = document.getElementById('createTaskModal');
+        const closeModalBtn = document.getElementById('closeTaskModal');
+        const cancelBtn = document.getElementById('cancelTask');
+
+        function openModal() {
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        if (addTaskBtn) {
+            addTaskBtn.addEventListener('click', openModal);
+        }
+
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', closeModal);
+        }
+
+        if (cancelBtn) {
+            cancelBtn.addEventListener('click', closeModal);
+        }
+
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
     </script>
 
 </body>
