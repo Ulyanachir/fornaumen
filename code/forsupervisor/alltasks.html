@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naumen - Все задания</title>
+    <link rel="stylesheet" href="alltasks.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="top-bar">
+            <div class="logo">NAUMEN</div>
+            <div class="top-right">
+                <div class="profile-pill">
+                    <div class="avatar-circle"></div>
+                    <span>Мой профиль</span>
+                </div>
+                <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+                <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="right-sidebar" id="sideMenu">
+            <button class="close-menu-btn" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><i class="fa-solid fa-users" style="color: var(--orange);"></i> Справочник сотрудников</li>
+                    <li><i class="fa-solid fa-comment-dots"></i> Чат с NaumAI</li>
+                    <li><i class="fa-solid fa-circle-question"></i> Справка</li>
+                    <li><i class="fa-solid fa-gear"></i> Настройки сервиса</li>
+                </ul>
+                <div class="logout-item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-layout">
+            <main class="content-area">
+                
+                <div class="back-link-wrapper">
+                    <a href="#" class="back-link"><i class="fa-solid fa-arrow-left"></i> К главному меню</a>
+                </div>
+
+                <div class="page-header">
+                    <h1>Все задания</h1>
+                    <p class="subtitle">Здесь собраны все задания по всем квестам и сотрудникам. Отслеживайте прогресс, контролируйте сроки выполнения.</p>
+                </div>
+
+                <div class="content-with-sidebar">
+                    
+                    <div class="filters-column">
+                        <div class="filters-header">
+                            <h3>Фильтры</h3>
+                            <a href="#" class="reset-link">Сбросить</a>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Статус</label>
+                            <div class="select-wrapper">
+                                <select class="filter-select">
+                                    <option>Все статусы</option>
+                                    <option>В работе</option>
+                                    <option>Не начато</option>
+                                    <option>Завершено</option>
+                                    <option>Просрочено</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Квест</label>
+                            <div class="select-wrapper">
+                                <select class="filter-select">
+                                    <option>Все квесты</option>
+                                    <option>Знакомство с политикой</option>
+                                    <option>Технический стек</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Сотрудник</label>
+                            <div class="search-input-wrapper">
+                                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                                <input type="text" placeholder="Поиск сотрудника" class="filter-input">
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Срок выполнения</label>
+                            <div class="input-with-icon">
+                                <input type="date" class="filter-input date-input">
+                            </div>
+                        </div>
+
+                        <button class="btn-apply">Применить</button>
+                        
+                        <button class="btn-export">
+                            <i class="fa-regular fa-file-excel"></i> Экспорт в Excel
+                        </button>
+                    </div>
+
+                    <div class="table-column">
+                        <div class="table-top-bar">
+                            <div class="table-title">
+                                <span class="title-text">Все задания</span>
+                                <span class="count-badge">24</span>
+                            </div>
+                            <div class="table-tabs">
+                                <span class="tab active">Список</span>
+                            </div>
+                            <div class="table-sort">
+                                <span>Сортировка: </span>
+                                <div class="select-wrapper small">
+                                    <select class="filter-select">
+                                        <option>Сначала новые</option>
+                                        <option>Сначала старые</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-header">
+                            <div class="th-check"><input type="checkbox" class="table-checkbox"></div>
+                            <div class="th">Задание</div>
+                            <div class="th">Квест</div>
+                            <div class="th">Сотрудник</div>
+                            <div class="th">Срок выполнения</div>
+                            <div class="th">Статус</div>
+                        </div>
+
+                        <div class="table-body">
+                            <div class="table-row">
+                                <div class="td-check"><input type="checkbox" class="table-checkbox"></div>
+                                <div class="td task">
+                                    <div class="task-title">Изучить модуль "Коммуникации"</div>
+                                    <div class="task-desc">Ознакомьтесь с правилами и пройдите тест по итогам</div>
+                                    <div class="task-comments"><i class="fa-regular fa-comment"></i> 2 комментария</div>
+                                </div>
+                                <div class="td">Знакомство с политикой</div>
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">ИИ</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Иванов И.И.</div>
+                                        <div class="emp-role">Менеджер по продажам</div>
+                                    </div>
+                                </div>
+                                <div class="td date">
+                                    <div class="date-main">25 мая 2025</div>
+                                    <div class="date-sub">(осталось 3 дня)</div>
+                                </div>
+                                <div class="td"><span class="status-badge orange">В работе</span></div>
+                            </div>
+
+                            <div class="table-row">
+                                <div class="td-check"><input type="checkbox" class="table-checkbox"></div>
+                                <div class="td task">
+                                    <div class="task-title">Встреча с HR</div>
+                                    <div class="task-desc">Обсудить ожидания и цели на испытательный срок.</div>
+                                    <div class="task-comments"><i class="fa-regular fa-comment"></i> 1 комментарий</div>
+                                </div>
+                                <div class="td">Знакомство с политикой</div>
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">ПА</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Петрова А.С.</div>
+                                        <div class="emp-role">HR-специалист</div>
+                                    </div>
+                                </div>
+                                <div class="td date">
+                                    <div class="date-main">26 мая 2025</div>
+                                    <div class="date-sub">(осталось 4 дня)</div>
+                                </div>
+                                <div class="td"><span class="status-badge gray">Не начато</span></div>
+                            </div>
+
+                            <div class="table-row">
+                                <div class="td-check"><input type="checkbox" class="table-checkbox"></div>
+                                <div class="td task">
+                                    <div class="task-title">Изучить корпоративные ценности</div>
+                                    <div class="task-desc">Прочитайте документ и ответьте на вопросы для самопроверки.</div>
+                                    <div class="task-comments"><i class="fa-regular fa-comment"></i> 0 комментариев</div>
+                                </div>
+                                <div class="td">Знакомство с политикой</div>
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">СА</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Сидоров А.Д.</div>
+                                        <div class="emp-role">Разработчик</div>
+                                    </div>
+                                </div>
+                                <div class="td date">
+                                    <div class="date-main">30 мая 2025</div>
+                                    <div class="date-sub">(осталось 8 дней)</div>
+                                </div>
+                                <div class="td"><span class="status-badge gray">Не начато</span></div>
+                            </div>
+
+                            <div class="table-row">
+                                <div class="td-check"><input type="checkbox" class="table-checkbox"></div>
+                                <div class="td task">
+                                    <div class="task-title">Подписать документы</div>
+                                    <div class="task-desc">Ознакомьтесь и подпишите необходимые документы в системе.</div>
+                                    <div class="task-comments"><i class="fa-regular fa-comment"></i> 3 комментария</div>
+                                </div>
+                                <div class="td">Знакомство с политикой</div>
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">КМ</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Кузнецова М.О.</div>
+                                        <div class="emp-role">Маркетолог</div>
+                                    </div>
+                                </div>
+                                <div class="td date">
+                                    <div class="date-main">20 мая 2025</div>
+                                    <div class="date-sub red">(просрочено на 2 дня)</div>
+                                </div>
+                                <div class="td"><span class="status-badge red">Просрочено</span></div>
+                            </div>
+
+                            <div class="table-row">
+                                <div class="td-check"><input type="checkbox" class="table-checkbox"></div>
+                                <div class="td task">
+                                    <div class="task-title">Пройди инструктаж по ИБ</div>
+                                    <div class="task-desc">Посмотрите видео и пройдите тест по информационной безопасности.</div>
+                                    <div class="task-comments"><i class="fa-regular fa-comment"></i> 1 комментарий</div>
+                                </div>
+                                <div class="td">Политики ИБ</div>
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">ВД</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Волков Д.А.</div>
+                                        <div class="emp-role">Тестировщик</div>
+                                    </div>
+                                </div>
+                                <div class="td date">
+                                    <div class="date-main">27 мая 2025</div>
+                                    <div class="date-sub">(осталось 5 дней)</div>
+                                </div>
+                                <div class="td"><span class="status-badge orange">В работе</span></div>
+                            </div>
+
+                            <div class="table-row">
+                                <div class="td-check"><input type="checkbox" class="table-checkbox"></div>
+                                <div class="td task">
+                                    <div class="task-title">Изучить технический стек</div>
+                                    <div class="task-desc">Изучите основные используемые технологии и инструменты.</div>
+                                    <div class="task-comments"><i class="fa-regular fa-comment"></i> 0 комментариев</div>
+                                </div>
+                                <div class="td">Технический стек</div>
+                                <div class="td employee">
+                                    <div class="emp-avatar-placeholder">ИИ</div>
+                                    <div class="emp-info">
+                                        <div class="emp-name">Иванов И.И.</div>
+                                        <div class="emp-role">Менеджер по продажам</div>
+                                    </div>
+                                </div>
+                                <div class="td date">
+                                    <div class="date-main">31 мая 2025</div>
+                                    <div class="date-sub">(осталось 9 дней)</div>
+                                </div>
+                                <div class="td"><span class="status-badge green">Завершено</span></div>
+                            </div>
+                        </div>
+
+                        <div class="pagination-wrapper">
+                            <span class="pagination-text">Показано 1–6 из 24 заданий</span>
+                            <div class="pagination-controls">
+                                <button class="page-btn arrow-only">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <div class="chat-bot">
+            <div class="bot-bubble">
+                <h4>NaumAI <span class="wave">👋</span></h4>
+                <p>Привет! Я NaumAI<br>Готов помочь на старте.<br>Задай вопрос в чате.</p>
+            </div>
+            <div class="bot-avatar">
+                <div class="bot-head"></div>
+                <div class="bot-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeMenuFunc() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+    </script>
+
+</body>
+</html>
