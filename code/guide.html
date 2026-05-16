@@ -43,7 +43,7 @@
             <main class="content-area">
                 
                 <div class="back-link-wrapper">
-                    <a href="javascript:void(0)" class="back-link"><i class="fa-solid fa-arrow-left"></i> К главному меню</a>
+                    <a href=# class="back-link"><i class="fa-solid fa-arrow-left"></i> К главному меню</a>
                 </div>
                 
                 <h1 class="page-title">Справочник сотрудников</h1>
@@ -244,13 +244,17 @@
 
         if (backLink) {
         if (from === 'curator') {
-        backLink.href = 'forsupervisor/quest2.html'; // Правильный путь с папкой
+        backLink.href = 'forsupervisor/quest2.html';
         } else if (from === 'newemployee') {
         backLink.href = 'quest1.html';
         } else {
         backLink.href = 'quest1.html';
         }
-    }
+    
+        backLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = this.href;
+        });
     }
     </script>
 
