@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naumen - Создание задания для сотрудника</title>
+    <link rel="stylesheet" href="createtask.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="top-bar">
+            <div class="logo">NAUMEN</div>
+            <div class="top-right">
+                <div class="profile-pill">
+                    <div class="avatar-circle"></div>
+                    <span>Мой профиль</span>
+                </div>
+                <button class="icon-btn"><i class="fa-regular fa-rectangle-list"></i></button>
+                <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="right-sidebar" id="sideMenu">
+            <button class="close-menu-btn" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><i class="fa-solid fa-users"></i> Справочник сотрудников</li>
+                    <li><i class="fa-solid fa-comment-dots"></i> Чат с NaumAI</li>
+                    <li><i class="fa-solid fa-circle-question"></i> Справка</li>
+                    <li><i class="fa-solid fa-gear"></i> Настройки сервиса</li>
+                </ul>
+                <div class="logout-item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-layout">
+            <main class="content-area">
+                
+                <div class="page-top">
+                    <a href="#" class="back-link"><i class="fa-solid fa-arrow-left"></i> К главному меню</a>
+                    <h1>Создание задания для сотрудника</h1>
+                    <p class="subtitle">Назначьте задание конкретному сотруднику вне квеста или в рамках адаптации</p>
+                </div>
+
+                <div class="form-wrapper-two-col">
+                    
+                    <div class="form-column">
+                        <h2 class="column-title">Информация о задании</h2>
+                        
+                        <div class="form-group">
+                            <label>Название задания <span class="required">*</span></label>
+                            <input type="text" placeholder="Например: Изучить регламент по отпускам" class="form-input error-border">
+                            <span class="error-text">Обязательное поле</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Описание задания <span class="required">*</span></label>
+                            <textarea class="form-textarea error-border" rows="4" placeholder="Подробно опишите, что нужно сделать, какие материалы изучить, какой результат ожидается и т.д."></textarea>
+                            <span class="error-text">Обязательное поле</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Крайний срок выполнения <span class="required">*</span></label>
+                            <div class="input-with-icon">
+                                <input type="date" class="form-input error-border">
+                                <span class="error-text">Обязательное поле</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Назначить сотрудника <span class="required">*</span></label>
+                            <div class="search-input-wrapper">
+                                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                                <input type="text" placeholder="Поиск по сотруднику" class="form-input">
+                            </div>
+
+                            <div class="employee-list">
+                                <div class="employee-row selected">
+                                    <input type="checkbox" class="employee-checkbox" checked>
+                                    <div class="employee-avatar"><img src="https://via.placeholder.com/40" alt=""></div>
+                                    <div class="employee-info">
+                                        <div class="emp-name">Иванов Иван Иванович</div>
+                                        <div class="emp-role">Менеджер по продажам</div>
+                                    </div>
+                                </div>
+
+                                <div class="employee-row">
+                                    <input type="checkbox" class="employee-checkbox">
+                                    <div class="employee-avatar"><img src="https://via.placeholder.com/40" alt=""></div>
+                                    <div class="employee-info">
+                                        <div class="emp-name">Петрова Анна Сергеевна</div>
+                                        <div class="emp-role">HR-специалист</div>
+                                    </div>
+                                </div>
+
+                                <div class="employee-row">
+                                    <input type="checkbox" class="employee-checkbox">
+                                    <div class="employee-avatar"><img src="https://via.placeholder.com/40" alt=""></div>
+                                    <div class="employee-info">
+                                        <div class="emp-name">Сидоров Алексей Дмитриевич</div>
+                                        <div class="emp-role">Разработчик</div>
+                                    </div>
+                                </div>
+
+                                <div class="employee-row">
+                                    <input type="checkbox" class="employee-checkbox">
+                                    <div class="employee-avatar"><img src="https://via.placeholder.com/40" alt=""></div>
+                                    <div class="employee-info">
+                                        <div class="emp-name">Кузнецова Мария Олеговна</div>
+                                        <div class="emp-role">Маркетолог</div>
+                                    </div>
+                                </div>
+
+                                <div class="employee-row">
+                                    <input type="checkbox" class="employee-checkbox">
+                                    <div class="employee-avatar"><img src="https://via.placeholder.com/40" alt=""></div>
+                                    <div class="employee-info">
+                                        <div class="emp-name">Волков Дмитрий Андреевич</div>
+                                        <div class="emp-role">Тестировщик</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="error-text">Обязательное поле (выберите хотя бы одного)</span>
+                        </div>
+                    </div>
+                  
+                    <div class="form-column">
+                        <h2 class="column-title">Дополнительные настройки</h2>
+
+                        <div class="form-group">
+                            <label>Тип задания <span class="required">*</span></label>
+                            <div class="select-wrapper">
+                                <select class="form-select error-border">
+                                    <option>Обязательное</option>
+                                    <option>По желанию</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Связать с квестом (необязательно)</label>
+                            <div class="select-wrapper">
+                                <select class="form-select">
+                                    <option>Не выбран</option>
+                                    <option>Знакомство с политикой</option>
+                                    <option>Технический стек</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Приложить материалы</label>
+                            <div class="upload-box">
+                                <i class="fa-solid fa-paperclip"></i>
+                                <span>Перетащите файлы или выберите с компьютера</span>
+                                <div class="upload-hint">Поддерживаются файлы до 10 МБ</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="toggle-row">
+                                <span>Отправить уведомление сотруднику</span>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="toggle-row">
+                                <span>Напомнить о задании</span>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Напомнить через</label>
+                            <div class="select-wrapper">
+                                <select class="form-select">
+                                    <option>1 день до дедлайна</option>
+                                    <option>3 дня до дедлайна</option>
+                                    <option>7 дней до дедлайна</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="info-box light-blue">
+                            <i class="fa-regular fa-circle-check"></i>
+                            <span>Сотрудник получит уведомление о задании на email и в личном кабинете.</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn-cancel">Отмена</button>
+                    <button class="btn-primary">Создать задание</button>
+                </div>
+
+            </main>
+        </div>
+
+        <div class="chat-bot">
+            <div class="bot-bubble">
+                <h4>NaumAI <span class="wave">👋</span></h4>
+                <p>Привет! Я NaumAI<br>Готов помочь на старте.<br>Задай вопрос в чате.</p>
+            </div>
+            <div class="bot-avatar">
+                <div class="bot-head"></div>
+                <div class="bot-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeMenuFunc() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+    </script>
+
+</body>
+</html>
