@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naumen - Обратная связь сотрудников</title>
+    <link rel="stylesheet" href="feedback.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="top-bar">
+            <div class="logo">NAUMEN</div>
+            <div class="top-right">
+                <div class="profile-pill">
+                    <div class="avatar-circle"></div>
+                    <span>Мой профиль</span>
+                </div>
+                <button class="icon-btn"><i class="fa-regular fa-rectangle-list"></i></button>
+                <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="right-sidebar" id="sideMenu">
+            <button class="close-menu-btn" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><i class="fa-solid fa-users"></i> Справочник сотрудников</li>
+                    <li><i class="fa-solid fa-comment-dots"></i> Чат с NaumAI</li>
+                    <li><i class="fa-solid fa-circle-question"></i> Справка</li>
+                    <li><i class="fa-solid fa-gear"></i> Настройки сервиса</li>
+                </ul>
+                <div class="logout-item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-layout">
+            <main class="content-area">
+                
+                <div class="page-header">
+                    <h1>Обратная связь сотрудников</h1>
+                    <p class="subtitle">Анализ ответов на короткие опросы по выбранную неделю</p>
+                </div>
+
+                <div class="date-selector">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>12 — 18 мая 2025</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-content">
+                            <div class="kpi-number">78%</div>
+                            <div class="kpi-label">Участие</div>
+                            <div class="kpi-sub">62 из 80 сотрудников</div>
+                        </div>
+                        <div class="kpi-icon"><i class="fa-solid fa-users"></i></div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-content">
+                            <div class="kpi-number green">4.2<span class="small">/5</span></div>
+                            <div class="kpi-label">Настроение</div>
+                            <div class="kpi-sub">Средняя оценка</div>
+                        </div>
+                        <div class="kpi-icon"><i class="fa-regular fa-face-smile"></i></div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-content">
+                            <div class="kpi-number green">4.3<span class="small">/5</span></div>
+                            <div class="kpi-label">Понятность задач</div>
+                            <div class="kpi-sub">Средняя оценка</div>
+                        </div>
+                        <div class="kpi-icon"><i class="fa-regular fa-rectangle-list"></i></div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-content">
+                            <div class="kpi-number green">4.1<span class="small">/5</span></div>
+                            <div class="kpi-label">Доступы и ресурсы</div>
+                            <div class="kpi-sub">Средняя оценка</div>
+                        </div>
+                        <div class="kpi-icon"><i class="fa-regular fa-folder-open"></i></div>
+                    </div>
+                </div>
+
+                <div class="charts-row">
+                    <div class="chart-card">
+                        <div class="chart-title">1. Оцените свое настроение в течение недели</div>
+                        <div class="chart-value">4.2<span class="small">/5</span></div>
+                        <div class="chart-sub">Средняя оценка</div>
+                        
+                        <div class="mood-bars">
+                            <div class="mood-bar-item">
+                                <div class="bar orange" style="height: 45%;"></div>
+                                <div class="mood-percent">45%</div>
+                                <div class="mood-icon"><i class="fa-regular fa-face-smile"></i></div>
+                            </div>
+                            <div class="mood-bar-item">
+                                <div class="bar green" style="height: 30%;"></div>
+                                <div class="mood-percent">30%</div>
+                                <div class="mood-icon"><i class="fa-regular fa-face-smile"></i></div>
+                            </div>
+                            <div class="mood-bar-item">
+                                <div class="bar yellow" style="height: 15%;"></div>
+                                <div class="mood-percent">15%</div>
+                                <div class="mood-icon"><i class="fa-regular fa-face-meh"></i></div>
+                            </div>
+                            <div class="mood-bar-item">
+                                <div class="bar red" style="height: 7%;"></div>
+                                <div class="mood-percent">7%</div>
+                                <div class="mood-icon"><i class="fa-regular fa-face-frown"></i></div>
+                            </div>
+                            <div class="mood-bar-item">
+                                <div class="bar gray" style="height: 3%;"></div>
+                                <div class="mood-percent">3%</div>
+                                <div class="mood-icon"><i class="fa-regular fa-face-angry"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-title">2. Насколько понятны ваши текущие задачи?</div>
+                        
+                        <div class="progress-list">
+                            <div class="progress-item">
+                                <span class="p-label">Полностью понятны</span>
+                                <div class="p-bar-bg">
+                                    <div class="p-bar-fill orange" style="width: 42%;"></div>
+                                </div>
+                                <span class="p-percent">42%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="p-label">Скорее понятны</span>
+                                <div class="p-bar-bg">
+                                    <div class="p-bar-fill orange" style="width: 35%;"></div>
+                                </div>
+                                <span class="p-percent">35%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="p-label">Сложно сказать</span>
+                                <div class="p-bar-bg">
+                                    <div class="p-bar-fill orange" style="width: 13%;"></div>
+                                </div>
+                                <span class="p-percent">13%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="p-label">Скорее непонятны</span>
+                                <div class="p-bar-bg">
+                                    <div class="p-bar-fill orange" style="width: 7%;"></div>
+                                </div>
+                                <span class="p-percent">7%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="p-label">Совсем непонятны</span>
+                                <div class="p-bar-bg">
+                                    <div class="p-bar-fill orange" style="width: 3%;"></div>
+                                </div>
+                                <span class="p-percent">3%</span>
+                            </div>
+                        </div>
+
+                        <div class="chart-title mt-30">3. Есть ли у вас все необходимые доступы и ресурсы для работы?</div>
+                        <div class="progress-list">
+                            <div class="progress-item">
+                                <span class="p-label">Да, есть всё</span>
+                                <div class="p-bar-bg">
+                                    <div class="p-bar-fill orange" style="width: 46%;"></div>
+                                </div>
+                                <span class="p-percent">46%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="p-label">В основном есть</span>
+                                <div class="p-bar-bg">
+                                    <div class="p-bar-fill orange" style="width: 32%;"></div>
+                                </div>
+                                <span class="p-percent">32%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="p-label">Чего-то не хватает</span>
+                                <div class="p-bar-bg">
+                                    <div class="p-bar-fill orange" style="width: 12%;"></div>
+                                </div>
+                                <span class="p-percent">12%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="p-label">Нет, многое отсутствует</span>
+                                <div class="p-bar-bg">
+                                    <div class="p-bar-fill orange" style="width: 8%;"></div>
+                                </div>
+                                <span class="p-percent">8%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews-block">
+                    <div class="reviews-header">
+                        <div class="reviews-title-area">
+                            <h3 class="reviews-title">4. Поделитесь своим мнением о сервисе и заданиях квеста</h3>
+                        </div>
+                        <div class="reviews-count">
+                            <span class="count-number">62</span>
+                            <span class="count-label">отзыва</span>
+                        </div>
+                    </div>
+  
+                    <div class="reviews-scroll">
+                        
+                        <div class="review-card">
+                            <div class="review-top">
+                                <span class="review-author">Мария</span>
+                            </div>
+                            <div class="review-text">
+                                <p>Удобный интерфейс, понятные задания, хорошая структура обучения.</p>
+                                <p>Иногда не хватает подсказок по сложным темам.</p>
+                                <p>Очень полезный сервис для адаптации! Всем рекомендую.</p>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-top">
+                                <span class="review-author">Амина</span>
+                            </div>
+                            <div class="review-text">
+                                <p>Замечательные материалы с мгновенным эффектом. Просто мастхэв на старте.</p>
+                                <p>Всё отлично, ничего лишнего.</p>
+                                <p>Спасибо за такую нужную вещь!</p>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-top">
+                                <span class="review-author">Зоя</span>
+                            </div>
+                            <div class="review-text">
+                                <p><strong>Достоинства:</strong> Хороший эффект, удобная подача материала.</p>
+                                <p>Очень помогло разобраться в первых шагах.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="reviews-footer">
+                        <a href="#" class="btn-show-all">Подробнее <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <div class="chat-bot">
+            <div class="bot-bubble">
+                <h4>NaumAI <span class="wave">👋</span></h4>
+                <p>Привет! Я NaumAI<br>Готов помочь на старте.<br>Задай вопрос в чате.</p>
+            </div>
+            <div class="bot-avatar">
+                <div class="bot-head"></div>
+                <div class="bot-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeMenuFunc() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+    </script>
+
+</body>
+</html>
