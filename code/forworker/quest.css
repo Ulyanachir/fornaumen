@@ -292,6 +292,20 @@ body {
     font-weight: bold;
 }
 
+.card-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.card-link:hover {
+    color: var(--orange);
+}
+
 .task-row {
     display: flex;
     align-items: center;
