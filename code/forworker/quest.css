@@ -354,6 +354,7 @@ body {
     align-items: flex-end;
     gap: 10px;
     z-index: 50;
+    cursor: pointer;
 }
 
 .bot-bubble {
@@ -636,7 +637,6 @@ body {
     background: #d1d1d1;
 }
 
-/* Анимация перехода между этапами */
 .quest-grid {
     transition: opacity 0.3s ease;
 }
@@ -658,7 +658,6 @@ body {
     box-shadow: 0 4px 10px rgba(204, 81, 25, 0.3);
 }
 
-/* Стили для чата NaumAI */
 #chatModal {
     display: none;
     position: fixed;
