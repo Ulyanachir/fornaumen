@@ -653,10 +653,22 @@ body {
     transition: all 0.3s ease;
 }
 
-.orange-btn.completed {
-    background: #e65a20;
+.orange-btn-completed {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #e65a20, #cc5119);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(204, 81, 25, 0.3);
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: transform 0.2s;
 }
 
-.orange-btn.completed:hover {
-    background: #cc5119;
+.orange-btn-completed:hover {
+    background: linear-gradient(135deg, #cc5119, #b34714);
+    transform: scale(1.05);
 }
