@@ -517,7 +517,7 @@ body {
 
 .notification-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
     padding: 12px;
     border: 1px solid var(--border-color);
@@ -579,7 +579,9 @@ body {
     font-size: 12px;
     cursor: pointer;
     white-space: nowrap;
-    align-self: center;
+    flex-shrink: 0;           
+    text-decoration: none;     
+    display: inline-block; 
 }
 
 .notif-action-btn:hover {
