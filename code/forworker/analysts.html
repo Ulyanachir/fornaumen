@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naumen - Сбор обратной связи</title>
+    <link rel="stylesheet" href="analysts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="top-bar">
+            <div class="logo">NAUMEN</div>
+            <div class="top-right">
+                <div class="profile-pill">
+                    <div class="avatar-circle"></div>
+                    <span>Мой профиль</span>
+                </div>
+                <button class="icon-btn"><i class="fa-regular fa-rectangle-list"></i></button>
+                <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="right-sidebar" id="sideMenu">
+            <button class="close-menu-btn" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><i class="fa-solid fa-users"></i> Справочник сотрудников</li>
+                    <li><i class="fa-solid fa-comment-dots"></i> Чат с NaumAI</li>
+                    <li><i class="fa-solid fa-circle-question"></i> Справка</li>
+                    <li><i class="fa-solid fa-gear"></i> Настройки сервиса</li>
+                </ul>
+                <div class="logout-item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-layout">
+            <main class="content-area">
+                
+                <div class="back-link-wrapper">
+                    <a href="#" class="back-link"><i class="fa-solid fa-arrow-left"></i> К главной</a>
+                </div>
+
+                <div class="progress-card">
+                    <div class="progress-header">Текущий прогресс: 35%</div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 35%;"></div>
+                    </div>
+                </div>
+
+                <div class="page-header">
+                    <h1>Сбор обратной связи</h1>
+                </div>
+
+                <div class="survey-card">
+                    <div class="survey-header">
+                        <div class="survey-header-left">
+                            <div class="survey-icon"><i class="fa-regular fa-clipboard"></i></div>
+                            <div class="survey-info">
+                                <div class="survey-title">Еженедельный опрос #24</div>
+                                <div class="survey-meta">
+                                    <span class="badge-light">1–2 минуты</span>
+                                    <span class="survey-desc">Ваше мнение помогает нам становиться лучше</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="survey-header-right">
+                            <span class="survey-deadline">Осталось: <span class="highlight">3 дня</span></span>
+                            <i class="fa-solid fa-chevron-up"></i>
+                        </div>
+                    </div>
+
+                    <div class="question-block">
+                        <div class="question-title">1. Оцените свое настроение в течение недели</div>
+                        <div class="mood-selector">
+                            <div class="mood-option" onclick="selectMood(this)">
+                                <i class="fa-regular fa-face-smile"></i>
+                                <span>Отличное</span>
+                            </div>
+                            <div class="mood-option" onclick="selectMood(this)">
+                                <i class="fa-regular fa-face-smile"></i>
+                                <span>Хорошее</span>
+                            </div>
+                            <div class="mood-option" onclick="selectMood(this)">
+                                <i class="fa-regular fa-face-meh"></i>
+                                <span>Нейтральное</span>
+                            </div>
+                            <div class="mood-option" onclick="selectMood(this)">
+                                <i class="fa-regular fa-face-frown"></i>
+                                <span>Так себе</span>
+                            </div>
+                            <div class="mood-option" onclick="selectMood(this)">
+                                <i class="fa-regular fa-face-angry"></i>
+                                <span>Плохое</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-block">
+                        <div class="question-title">2. Насколько понятны ваши текущие задачи?</div>
+                        <div class="radio-group">
+                            <label class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" name="clarity">
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Полностью понятны</span>
+                            </label>
+                            <label class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" name="clarity">
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Скорее понятны</span>
+                            </label>
+                            <label class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" name="clarity">
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Сложно сказать</span>
+                            </label>
+                            <label class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" name="clarity">
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Скорее непонятны</span>
+                            </label>
+                            <label class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" name="clarity">
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Совсем непонятны</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question-block">
+                        <div class="question-title">3. Есть ли у вас все необходимые доступы и ресурсы для работы?</div>
+                        <div class="radio-group">
+                            <label class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" name="access">
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Да, есть всё</span>
+                            </label>
+                            <label class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" name="access">
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">В основном есть</span>
+                            </label>
+                            <label class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" name="access">
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Чего-то не хватает</span>
+                            </label>
+                            <label class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" name="access">
+                                <span class="radio-custom"></span>
+                                <span class="radio-label">Нет, многое отсутствует</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question-block last">
+                        <div class="question-title">4. Поделитесь своим мнением о сервисе и заданиях квеста (необязательно)</div>
+                        <div class="textarea-wrapper">
+                            <textarea placeholder="Ваш ответ..."></textarea>
+                            <span class="char-counter">0/500</span>
+                        </div>
+                    </div>
+
+                    <div class="survey-footer">
+                        <button class="btn-submit">Отправить ответы</button>
+                        <span class="survey-time">Займёт не больше 2 минут</span>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <div class="chat-bot">
+            <div class="bot-bubble">
+                <h4>NaumAI <span class="wave">👋</span></h4>
+                <p>Привет! Я NaumAI<br>Готов помочь на старте.<br>Задай вопрос в чате.</p>
+            </div>
+            <div class="bot-avatar">
+                <div class="bot-head"></div>
+                <div class="bot-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeMenuFunc() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+
+  
+        function selectMood(element) {
+            document.querySelectorAll('.mood-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            element.classList.add('selected');
+        }
+
+        function selectRadio(element) {
+            const parent = element.closest('.radio-group');
+            parent.querySelectorAll('.radio-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            element.querySelector('input[type="radio"]').checked = true;
+        }
+    </script>
+
+</body>
+</html>
