@@ -303,7 +303,7 @@ body {
     right: 0;
     border: 2px solid white;
 }
-.logout-link {
+.logo-link {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -314,11 +314,11 @@ body {
     width: 100%;
 }
 
-.logout-link:hover {
+.logo-link:hover {
     color: var(--orange);
 }
 
-.logout-link i {
+.logo-link i {
     width: 20px;
     text-align: center;
 }
