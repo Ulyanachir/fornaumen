@@ -1,5 +1,6 @@
 :root {
     --orange: #ff6e30;
+    --light-orange: #ff9a6b;
     --light-orange-bg: #fff5f0; 
     --gray: #e0e0e0;
     --dark-text: #333;
@@ -295,6 +296,7 @@ body {
     text-align: center;
 }
 
+/* Стили для чат-бота */
 .chat-bot {
     position: fixed;
     bottom: 30px;
@@ -303,6 +305,7 @@ body {
     align-items: flex-end;
     gap: 10px;
     z-index: 50;
+    cursor: pointer;
 }
 
 .bot-bubble {
@@ -314,8 +317,18 @@ body {
     position: relative;
 }
 
-.bot-bubble h4 { font-size: 14px; margin-bottom: 5px; color: var(--orange); font-weight: 700;}
-.bot-bubble p { font-size: 12px; color: #777; line-height: 1.4; }
+.bot-bubble h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: var(--orange);
+    font-weight: 700;
+}
+
+.bot-bubble p {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.4;
+}
 
 .bot-avatar {
     width: 60px;
@@ -345,6 +358,13 @@ body {
     border: 2px solid white;
 }
 
+/* Анимация */
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Стили для модального окна чата */
 #chatModal {
     display: none;
     position: fixed;
