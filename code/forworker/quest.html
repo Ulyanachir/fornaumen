@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naumen - Панель сотрудника</title>
-    <link rel="stylesheet" href="quest.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -17,7 +17,10 @@
                     <div class="avatar-circle"></div>
                     <span>Мой профиль</span>
                 </div>
-                <button class="icon-btn"><i class="fa-regular fa-rectangle-list"></i></button>
+                <button class="icon-btn notification-btn" id="notificationBtn">
+                    <i class="fa-regular fa-rectangle-list"></i>
+                    <span class="notification-dot"></span>
+                </button>
                 <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
             </div>
         </header>
@@ -149,6 +152,58 @@
         </div>
     </div>
 
+    <div class="modal-overlay" id="notificationModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Уведомления</h2>
+                <button class="modal-close" id="closeNotificationModal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="notification-list">
+                    <div class="notification-item">
+                        <div class="notif-icon orange"><i class="fa-regular fa-clipboard"></i></div>
+                        <div class="notif-content">
+                            <div class="notif-title">Еженедельный опрос #24</div>
+                            <div class="notif-desc">Пришёл новый опрос. Ваше мнение помогает нам становиться лучше.</div>
+                            <div class="notif-time">2 минуты назад</div>
+                        </div>
+                        <button class="notif-action-btn">Перейти</button>
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notif-icon"><i class="fa-regular fa-comment"></i></div>
+                        <div class="notif-content">
+                            <div class="notif-title">Комментарий к заданию</div>
+                            <div class="notif-desc">Куратор оставил комментарий к заданию "Пройти модуль 'Коммуникации'".</div>
+                            <div class="notif-time">15 минут назад</div>
+                        </div>
+                        <button class="notif-action-btn">Перейти</button>
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notif-icon"><i class="fa-regular fa-comment"></i></div>
+                        <div class="notif-content">
+                            <div class="notif-title">Комментарий к заданию</div>
+                            <div class="notif-desc">Куратор оставил комментарий к заданию "Встреча с HR".</div>
+                            <div class="notif-time">1 час назад</div>
+                        </div>
+                        <button class="notif-action-btn">Перейти</button>
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notif-icon"><i class="fa-regular fa-comment"></i></div>
+                        <div class="notif-content">
+                            <div class="notif-title">Комментарий к заданию</div>
+                            <div class="notif-desc">Куратор оставил комментарий к заданию "Заполнить анкету новичка".</div>
+                            <div class="notif-time">3 часа назад</div>
+                        </div>
+                        <button class="notif-action-btn">Перейти</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const closeMenu = document.getElementById('closeMenu');
@@ -168,13 +223,46 @@
         function logoutUser() {
             sessionStorage.clear();
             localStorage.clear();
-            
             window.location.replace('../index.html');
         }
 
         menuToggle.addEventListener('click', openMenu);
         closeMenu.addEventListener('click', closeMenuFunc);
         overlay.addEventListener('click', closeMenuFunc);
+
+        const notificationBtn = document.getElementById('notificationBtn');
+        const notificationModal = document.getElementById('notificationModal');
+        const closeNotificationModal = document.getElementById('closeNotificationModal');
+
+        let hasNotifications = true;
+
+        if (hasNotifications) {
+            notificationBtn.classList.add('active');
+            notificationBtn.querySelector('.notification-dot').classList.add('active');
+        }
+
+        notificationBtn.addEventListener('click', function() {
+            notificationModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                hasNotifications = false;
+                notificationBtn.classList.remove('active');
+                notificationBtn.querySelector('.notification-dot').classList.remove('active');
+            }, 100);
+        });
+
+        closeNotificationModal.addEventListener('click', function() {
+            notificationModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        notificationModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
     </script>
 
 </body>
