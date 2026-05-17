@@ -303,3 +303,22 @@ body {
     right: 0;
     border: 2px solid white;
 }
+.logout-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+    width: 100%;
+}
+
+.logout-link:hover {
+    color: var(--orange);
+}
+
+.logout-link i {
+    width: 20px;
+    text-align: center;
+}
