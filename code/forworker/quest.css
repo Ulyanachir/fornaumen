@@ -357,6 +357,10 @@ body {
     cursor: pointer;
 }
 
+.chat-bot:hover {
+    cursor: pointer;
+}
+
 .bot-bubble {
     background: white;
     padding: 15px;
