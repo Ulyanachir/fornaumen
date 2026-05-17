@@ -21,13 +21,28 @@
             <input type="password" id="password" placeholder="Введите пароль">
         </div>
 
-        <button class="submit-btn">Войти</button>
+        <button class="submit-btn" onclick="checkLogin()">Войти</button>
 
         <div class="footer-text">
             В случае утери логина или пароля обратитесь к<br>
             ответственному лицу
         </div>
     </div>
+
+    <script>
+        function checkLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'worker' && password === 'worker') {
+                window.location.href = 'forworker/quest.html';
+            } else if (username === 'supervisor' && password === 'supervisor') {
+                window.location.href = 'forsupervisor/quest2.html';
+            } else {
+                alert('Неверный логин или пароль');
+            }
+        }
+    </script>
 
 </body>
 </html>
