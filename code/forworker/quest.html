@@ -153,33 +153,30 @@
                 <div class="tasks-center-wrapper">
                     <div class="tasks-card">
                         <div class="tasks-header">
-                            <h3 id="tasksTitle">Ближайшие задания</h3>
+                            <h3>Ближайшие задания</h3>
                             <i class="fa-solid fa-chevron-up"></i>
                         </div>
-                        <div id="tasksContainer">
-                            <div class="task-row">
-                                <div class="task-info">
-                                    <i class="fa-regular fa-folder-open task-icon"></i>
-                                    <span>Пройти модуль "Коммуникации"</span>
-                                </div>
-                                <span class="tag-required">Обязательное</span>
-                                <input type="checkbox" class="task-check">
+                        <div class="task-row">
+                            <div class="task-info">
+                                <i class="fa-regular fa-folder-open task-icon"></i>
+                                <span>Пройти модуль "Коммуникации"</span>
                             </div>
-                            <div class="task-row">
-                                <div class="task-info">
-                                    <i class="fa-regular fa-calendar task-icon"></i>
-                                    <span>Встреча с HR (запланировано на 14:00)</span>
-                                </div>
-                                <span class="tag-planned">Запланировано</span>
-                                <input type="checkbox" class="task-check">
+                            <span class="tag-required">Обязательное</span>
+                            <input type="checkbox" class="task-check">
+                        </div>
+                        <div class="task-row">
+                            <div class="task-info">
+                                <i class="fa-regular fa-calendar task-icon"></i>
+                                <span>Встреча с HR (запланировано на 14:00)</span>
                             </div>
+                            <span class="tag-planned">Запланировано</span>
+                            <input type="checkbox" class="task-check">
                         </div>
                         <div class="tasks-footer">
-                            <a href="alltasks.html" class="all-tasks-link">Все задания <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
+                        <a href="alltasks.html" class="all-tasks-link">Все задания <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-
+            </div>
             </main>
         </div>
         <div class="chat-bot">
@@ -272,24 +269,15 @@
     closeMenu.addEventListener('click', closeMenuFunc);
     overlay.addEventListener('click', closeMenuFunc);
 
+    // Функционал переключения этапов
     const stages = [
         {
             id: 1,
-            title: 'Знакомство с политикой',
-            progress: 35,
-            tasks: [
-                { text: 'Пройти модуль "Коммуникации"', type: 'required', icon: 'fa-folder-open' },
-                { text: 'Встреча с HR (запланировано на 14:00)', type: 'planned', icon: 'fa-calendar' }
-            ]
+            title: 'Знакомство с политикой'
         },
         {
             id: 2,
-            title: 'Изучение внутренних процессов компании',
-            progress: 15,
-            tasks: [
-                { text: 'Ознакомиться с регламентом работы', type: 'required', icon: 'fa-folder-open' },
-                { text: 'Изучить корпоративный портал', type: 'planned', icon: 'fa-calendar' }
-            ]
+            title: 'Изучение внутренних процессов компании'
         }
     ];
 
@@ -298,19 +286,13 @@
     const questGrid1 = document.getElementById('questGrid1');
     const questGrid2 = document.getElementById('questGrid2');
     const stageTitle = document.getElementById('stageTitle');
-    const progressPercent = document.getElementById('progressPercent');
-    const progressBar = document.getElementById('progressBar');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    const tasksContainer = document.getElementById('tasksContainer');
-    const tasksTitle = document.getElementById('tasksTitle');
 
     function updateStage() {
         const stage = stages[currentStage];
         
         stageTitle.textContent = stage.title;
-        progressPercent.textContent = stage.progress + '%';
-        progressBar.style.width = stage.progress + '%';
         
         if (currentStage === 0) {
             questGrid1.style.display = 'grid';
@@ -320,35 +302,8 @@
             questGrid2.style.display = 'grid';
         }
         
-        updateTasks(stage.tasks);
-        
         prevBtn.disabled = currentStage === 0;
         nextBtn.disabled = currentStage === stages.length - 1;
-        
-        tasksTitle.textContent = currentStage === 0 ? 'Ближайшие задания' : 'Задания этапа';
-    }
-
-    function updateTasks(tasks) {
-        tasksContainer.innerHTML = '';
-        
-        tasks.forEach(task => {
-            const taskRow = document.createElement('div');
-            taskRow.className = 'task-row';
-            
-            const tagClass = task.type === 'required' ? 'tag-required' : 'tag-planned';
-            const tagText = task.type === 'required' ? 'Обязательное' : 'Запланировано';
-            
-            taskRow.innerHTML = `
-                <div class="task-info">
-                    <i class="fa-regular ${task.icon} task-icon"></i>
-                    <span>${task.text}</span>
-                </div>
-                <span class="${tagClass}">${tagText}</span>
-                <input type="checkbox" class="task-check">
-            `;
-            
-            tasksContainer.appendChild(taskRow);
-        });
     }
 
     function goToNextStage() {
@@ -395,15 +350,6 @@
 
     nextBtn.addEventListener('click', goToNextStage);
     prevBtn.addEventListener('click', goToPrevStage);
-
-    document.querySelectorAll('.orange-btn, .gray-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            if (!this.classList.contains('gray-btn')) {
-                const taskNumber = this.textContent;
-                console.log('Открыто задание ' + taskNumber);
-            }
-        });
-    });
 
     updateStage();
     </script>
