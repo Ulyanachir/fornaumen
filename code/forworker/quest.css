@@ -600,3 +600,40 @@ body {
     background: #ccc;
     border-radius: 4px;
 }
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.circle-arrow.back {
+    background: #666;
+}
+
+.circle-arrow.back:hover {
+    background: #555;
+}
+
+.circle-arrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Анимация перехода между этапами */
+.quest-grid {
+    transition: opacity 0.3s ease;
+}
+
+.quest-grid.fade-out {
+    opacity: 0;
+}
+
+.quest-grid.fade-in {
+    opacity: 1;
+}
+
+.section-title {
+    transition: all 0.3s ease;
+}
