@@ -245,7 +245,39 @@
             </div>
         </div>
     </div>
-
+     <!-- Модальное окно чата с NaumAI -->
+    <div class="modal-overlay" id="chatModal">
+        <div class="modal-container chat-container">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-robot"></i> Чат с NaumAI</h2>
+                <button class="modal-close" id="closeChatModal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body chat-body">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-message bot-message">
+                        <div class="message-avatar">
+                            <div class="bot-head-small"></div>
+                        </div>
+                        <div class="message-content">
+                            <p>Привет! Я NaumAI 👋<br>Задайте мне вопрос, и я постараюсь помочь.</p>
+                            <span class="message-time">Только что</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-suggestions">
+                    <button class="suggestion-btn">Как оформить отпуск?</button>
+                    <button class="suggestion-btn">Где найти регламент?</button>
+                    <button class="suggestion-btn">Как заказать пропуск?</button>
+                </div>
+                <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Введите ваш вопрос...">
+                    <button class="chat-send-btn" id="sendMessageBtn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
     const menuToggle = document.getElementById('menuToggle');
     const closeMenu = document.getElementById('closeMenu');
@@ -308,7 +340,6 @@
         });
     }
 
-    // Функционал переключения этапов
     const stages = [
         {
             id: 1,
@@ -391,7 +422,129 @@
     prevBtn.addEventListener('click', goToPrevStage);
 
     updateStage();
-    </script>
+
+    // Функционал чата с NaumAI
+const chatBot = document.querySelector('.chat-bot');
+const chatModal = document.getElementById('chatModal');
+const closeChatModal = document.getElementById('closeChatModal');
+const chatInput = document.getElementById('chatInput');
+const sendMessageBtn = document.getElementById('sendMessageBtn');
+const chatMessages = document.getElementById('chatMessages');
+const suggestionBtns = document.querySelectorAll('.suggestion-btn');
+
+// База знаний NaumAI
+const knowledgeBase = {
+    'отпуск': 'Для оформления отпуска необходимо:\n\n1. Согласовать даты с руководителем\n2. Подать заявление в разделе "HR-портал" → "Отпуска"\n3. Заявление должно быть подано не позднее чем за 2 недели\n\nПосле согласования вы получите уведомление.',
+    
+    'регламент': 'Регламенты компании находятся:\n\n📁 Корпоративный портал → раздел "Документы"\n📁 Общая папка на сетевом диске: \\\\docs\\regulations\n\nОсновные регламенты:\n• Регламент работы с клиентами\n• Регламент документооборота\n• Правила внутреннего распорядка',
+    
+    'пропуск': 'Для заказа пропуска:\n\n1. Перейдите в раздел "Безопасность" на портале\n2. Выберите "Заказ пропуска"\n3. Укажите данные посетителя:\n   - ФИО\n   - Организацию\n   - Дату и время визита\n4. Заявка будет рассмотрена в течение 24 часов\n\nВременный пропуск можно получить на ресепшене.',
+    
+    'привет': 'Здравствуйте! Чем я могу вам помочь? 🤗',
+    
+    'спасибо': 'Всегда рад помочь! Обращайтесь, если появятся другие вопросы 😊'
+};
+
+// Открытие чата при клике на бота
+chatBot.addEventListener('click', function() {
+    chatModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+// Закрытие чата
+closeChatModal.addEventListener('click', function() {
+    chatModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+chatModal.addEventListener('click', function(e) {
+    if (e.target === this) {
+        this.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Функция добавления сообщения
+function addMessage(text, isUser = false) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `chat-message ${isUser ? 'user-message' : 'bot-message'}`;
+    
+    const now = new Date();
+    const time = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+    
+    if (isUser) {
+        messageDiv.innerHTML = `
+            <div class="message-avatar">
+                <i class="fa-regular fa-user"></i>
+            </div>
+            <div class="message-content">
+                <p>${text}</p>
+                <span class="message-time">${time}</span>
+            </div>
+        `;
+    } else {
+        messageDiv.innerHTML = `
+            <div class="message-avatar">
+                <div class="bot-head-small"></div>
+            </div>
+            <div class="message-content">
+                <p>${text}</p>
+                <span class="message-time">${time}</span>
+            </div>
+        `;
+    }
+    
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Функция поиска ответа
+function getBotResponse(message) {
+    const lowerMessage = message.toLowerCase();
+    
+    for (const [key, value] of Object.entries(knowledgeBase)) {
+        if (lowerMessage.includes(key)) {
+            return value;
+        }
+    }
+    
+    return 'Извините, я пока не знаю ответа на этот вопрос. Попробуйте спросить:\n\n• Как оформить отпуск?\n• Где найти регламент?\n• Как заказать пропуск?\n\nИли обратитесь к HR-специалисту.';
+}
+
+// Отправка сообщения
+function sendMessage() {
+    const message = chatInput.value.trim();
+    
+    if (message) {
+        addMessage(message, true);
+        chatInput.value = '';
+        
+        // Имитация задержки ответа
+        setTimeout(() => {
+            const response = getBotResponse(message);
+            addMessage(response);
+        }, 500 + Math.random() * 1000);
+    }
+}
+
+// Обработчики отправки
+sendMessageBtn.addEventListener('click', sendMessage);
+
+chatInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        sendMessage();
+    }
+});
+
+// Обработчики для подсказок
+suggestionBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        const question = this.textContent;
+        chatInput.value = question;
+        sendMessage();
+    });
+});
+</script>
 
 </body>
 </html>
