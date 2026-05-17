@@ -247,200 +247,165 @@
     </div>
 
     <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const closeMenu = document.getElementById('closeMenu');
-        const sideMenu = document.getElementById('sideMenu');
-        const overlay = document.getElementById('overlay');
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const sideMenu = document.getElementById('sideMenu');
+    const overlay = document.getElementById('overlay');
 
-        function openMenu() {
-            sideMenu.classList.add('active');
-            overlay.classList.add('active');
+    function openMenu() {
+        sideMenu.classList.add('active');
+        overlay.classList.add('active');
+    }
+
+    function closeMenuFunc() {
+        sideMenu.classList.remove('active');
+        overlay.classList.remove('active');
+    }
+
+    function logoutUser() {
+        sessionStorage.clear();
+        localStorage.clear();
+        window.location.replace('../index.html');
+    }
+
+    menuToggle.addEventListener('click', openMenu);
+    closeMenu.addEventListener('click', closeMenuFunc);
+    overlay.addEventListener('click', closeMenuFunc);
+
+    const stages = [
+        {
+            id: 1,
+            title: 'Знакомство с политикой',
+            progress: 35,
+            tasks: [
+                { text: 'Пройти модуль "Коммуникации"', type: 'required', icon: 'fa-folder-open' },
+                { text: 'Встреча с HR (запланировано на 14:00)', type: 'planned', icon: 'fa-calendar' }
+            ]
+        },
+        {
+            id: 2,
+            title: 'Изучение внутренних процессов компании',
+            progress: 15,
+            tasks: [
+                { text: 'Ознакомиться с регламентом работы', type: 'required', icon: 'fa-folder-open' },
+                { text: 'Изучить корпоративный портал', type: 'planned', icon: 'fa-calendar' }
+            ]
         }
+    ];
 
-        function closeMenuFunc() {
-            sideMenu.classList.remove('active');
-            overlay.classList.remove('active');
+    let currentStage = 0;
+
+    const questGrid1 = document.getElementById('questGrid1');
+    const questGrid2 = document.getElementById('questGrid2');
+    const stageTitle = document.getElementById('stageTitle');
+    const progressPercent = document.getElementById('progressPercent');
+    const progressBar = document.getElementById('progressBar');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const tasksContainer = document.getElementById('tasksContainer');
+    const tasksTitle = document.getElementById('tasksTitle');
+
+    function updateStage() {
+        const stage = stages[currentStage];
+        
+        stageTitle.textContent = stage.title;
+        progressPercent.textContent = stage.progress + '%';
+        progressBar.style.width = stage.progress + '%';
+        
+        if (currentStage === 0) {
+            questGrid1.style.display = 'grid';
+            questGrid2.style.display = 'none';
+        } else {
+            questGrid1.style.display = 'none';
+            questGrid2.style.display = 'grid';
         }
+        
+        updateTasks(stage.tasks);
+        
+        prevBtn.disabled = currentStage === 0;
+        nextBtn.disabled = currentStage === stages.length - 1;
+        
+        tasksTitle.textContent = currentStage === 0 ? 'Ближайшие задания' : 'Задания этапа';
+    }
 
-        function logoutUser() {
-            sessionStorage.clear();
-            localStorage.clear();
-            window.location.replace('../index.html');
-        }
+    function updateTasks(tasks) {
+        tasksContainer.innerHTML = '';
+        
+        tasks.forEach(task => {
+            const taskRow = document.createElement('div');
+            taskRow.className = 'task-row';
+            
+            const tagClass = task.type === 'required' ? 'tag-required' : 'tag-planned';
+            const tagText = task.type === 'required' ? 'Обязательное' : 'Запланировано';
+            
+            taskRow.innerHTML = `
+                <div class="task-info">
+                    <i class="fa-regular ${task.icon} task-icon"></i>
+                    <span>${task.text}</span>
+                </div>
+                <span class="${tagClass}">${tagText}</span>
+                <input type="checkbox" class="task-check">
+            `;
+            
+            tasksContainer.appendChild(taskRow);
+        });
+    }
 
-        menuToggle.addEventListener('click', openMenu);
-        closeMenu.addEventListener('click', closeMenuFunc);
-        overlay.addEventListener('click', closeMenuFunc);
-
-        const notificationBtn = document.getElementById('notificationBtn');
-        const notificationModal = document.getElementById('notificationModal');
-        const closeNotificationModal = document.getElementById('closeNotificationModal');
-
-        let hasNotifications = true;
-
-        if (hasNotifications) {
-            notificationBtn.classList.add('active');
-            notificationBtn.querySelector('.notification-dot').classList.add('active');
-        }
-
-        notificationBtn.addEventListener('click', function() {
-            notificationModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+    function goToNextStage() {
+        if (currentStage < stages.length - 1) {
+            const currentGrid = currentStage === 0 ? questGrid1 : questGrid2;
+            currentGrid.classList.add('fade-out');
             
             setTimeout(() => {
-                hasNotifications = false;
-                notificationBtn.classList.remove('active');
-                notificationBtn.querySelector('.notification-dot').classList.remove('active');
-            }, 100);
-        });
-
-        closeNotificationModal.addEventListener('click', function() {
-            notificationModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-
-        notificationModal.addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Функционал переключения этапов
-        const stages = [
-            {
-                id: 1,
-                title: 'Знакомство с политикой',
-                progress: 35,
-                tasks: [
-                    { text: 'Пройти модуль "Коммуникации"', type: 'required', icon: 'fa-folder-open' },
-                    { text: 'Встреча с HR (запланировано на 14:00)', type: 'planned', icon: 'fa-calendar' }
-                ]
-            },
-            {
-                id: 2,
-                title: 'Изучение внутренних процессов компании',
-                progress: 15,
-                tasks: [
-                    { text: 'Ознакомиться с регламентом работы', type: 'required', icon: 'fa-folder-open' },
-                    { text: 'Изучить корпоративный портал', type: 'planned', icon: 'fa-calendar' }
-                ]
-            }
-        ];
-
-        let currentStage = 0;
-
-        const questGrid1 = document.getElementById('questGrid1');
-        const questGrid2 = document.getElementById('questGrid2');
-        const stageTitle = document.getElementById('stageTitle');
-        const progressPercent = document.getElementById('progressPercent');
-        const progressBar = document.getElementById('progressBar');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const tasksContainer = document.getElementById('tasksContainer');
-        const tasksTitle = document.getElementById('tasksTitle');
-
-        function updateStage() {
-            const stage = stages[currentStage];
-            
-            stageTitle.textContent = stage.title;
-            progressPercent.textContent = stage.progress + '%';
-            progressBar.style.width = stage.progress + '%';
-            
-            if (currentStage === 0) {
-                questGrid1.style.display = 'grid';
-                questGrid2.style.display = 'none';
-            } else {
-                questGrid1.style.display = 'none';
-                questGrid2.style.display = 'grid';
-            }
-            
-            updateTasks(stage.tasks);
-            
-            prevBtn.disabled = currentStage === 0;
-            nextBtn.disabled = currentStage === stages.length - 1;
-            
-            tasksTitle.textContent = currentStage === 0 ? 'Ближайшие задания' : 'Задания этапа';
-        }
-
-        function updateTasks(tasks) {
-            tasksContainer.innerHTML = '';
-            
-            tasks.forEach(task => {
-                const taskRow = document.createElement('div');
-                taskRow.className = 'task-row';
+                currentStage++;
+                updateStage();
                 
-                const tagClass = task.type === 'required' ? 'tag-required' : 'tag-planned';
-                const tagText = task.type === 'required' ? 'Обязательное' : 'Запланировано';
-                
-                taskRow.innerHTML = `
-                    <div class="task-info">
-                        <i class="fa-regular ${task.icon} task-icon"></i>
-                        <span>${task.text}</span>
-                    </div>
-                    <span class="${tagClass}">${tagText}</span>
-                    <input type="checkbox" class="task-check">
-                `;
-                
-                tasksContainer.appendChild(taskRow);
-            });
-        }
-
-        function goToNextStage() {
-            if (currentStage < stages.length - 1) {
-                const currentGrid = currentStage === 0 ? questGrid1 : questGrid2;
-                currentGrid.classList.add('fade-out');
+                const newGrid = currentStage === 0 ? questGrid1 : questGrid2;
+                newGrid.classList.add('fade-in');
                 
                 setTimeout(() => {
-                    currentStage++;
-                    updateStage();
-                    
-                    const newGrid = currentStage === 0 ? questGrid1 : questGrid2;
-                    newGrid.classList.add('fade-in');
-                    
-                    setTimeout(() => {
-                        newGrid.classList.remove('fade-in');
-                    }, 300);
-                    
-                    currentGrid.classList.remove('fade-out');
-                }, 200);
-            }
+                    newGrid.classList.remove('fade-in');
+                }, 300);
+                
+                currentGrid.classList.remove('fade-out');
+            }, 200);
         }
+    }
 
-        function goToPrevStage() {
-            if (currentStage > 0) {
-                const currentGrid = currentStage === 0 ? questGrid1 : questGrid2;
-                currentGrid.classList.add('fade-out');
+    function goToPrevStage() {
+        if (currentStage > 0) {
+            const currentGrid = currentStage === 0 ? questGrid1 : questGrid2;
+            currentGrid.classList.add('fade-out');
+            
+            setTimeout(() => {
+                currentStage--;
+                updateStage();
+                
+                const newGrid = currentStage === 0 ? questGrid1 : questGrid2;
+                newGrid.classList.add('fade-in');
                 
                 setTimeout(() => {
-                    currentStage--;
-                    updateStage();
-                    
-                    const newGrid = currentStage === 0 ? questGrid1 : questGrid2;
-                    newGrid.classList.add('fade-in');
-                    
-                    setTimeout(() => {
-                        newGrid.classList.remove('fade-in');
-                    }, 300);
-                    
-                    currentGrid.classList.remove('fade-out');
-                }, 200);
-            }
+                    newGrid.classList.remove('fade-in');
+                }, 300);
+                
+                currentGrid.classList.remove('fade-out');
+            }, 200);
         }
+    }
 
-        nextBtn.addEventListener('click', goToNextStage);
-        prevBtn.addEventListener('click', goToPrevStage);
+    nextBtn.addEventListener('click', goToNextStage);
+    prevBtn.addEventListener('click', goToPrevStage);
 
-        document.querySelectorAll('.orange-btn, .gray-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                if (!this.classList.contains('gray-btn')) {
-                    const taskNumber = this.textContent;
-                    alert(`Открыто задание ${taskNumber}`);
-                }
-            });
+    document.querySelectorAll('.orange-btn, .gray-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (!this.classList.contains('gray-btn')) {
+                const taskNumber = this.textContent;
+                console.log('Открыто задание ' + taskNumber);
+            }
         });
+    });
 
-        updateStage();
+    updateStage();
     </script>
 
 </body>
