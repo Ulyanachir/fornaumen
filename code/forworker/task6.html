@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naumen - Задание</title>
+    <link rel="stylesheet" href="task6.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="top-bar">
+            <div class="logo">NAUMEN</div>
+            <div class="top-right">
+                <div class="profile-pill">
+                    <div class="avatar-circle"></div>
+                    <span>Мой профиль</span>
+                </div>
+                <button class="icon-btn"><i class="fa-regular fa-rectangle-list"></i></button>
+                <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="right-sidebar" id="sideMenu">
+            <button class="close-menu-btn" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><i class="fa-solid fa-users"></i> Справочник сотрудников</li>
+                    <li><i class="fa-solid fa-comment-dots"></i> Чат с NaumAI</li>
+                    <li><i class="fa-solid fa-circle-question"></i> Справка</li>
+                    <li><i class="fa-solid fa-gear"></i> Настройки сервиса</li>
+                </ul>
+                <div class="logout-item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-layout">
+            <main class="content-area">
+                
+                <div class="back-link-wrapper">
+                    <a href="#" class="back-link"><i class="fa-solid fa-arrow-left"></i> К списку заданий</a>
+                </div>
+
+                <div class="task-layout">
+                    
+                    <div class="employee-sidebar" style="display: none;"></div>
+
+                    <div class="task-content">
+                        <div class="task-header">
+                            <div class="task-status-badge">В процессе</div>
+                            <div class="task-step">Этап 6 из 8</div>
+                            <div class="task-nav">
+                                <button class="nav-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="task-title-block">
+                            <div class="task-icon"><i class="fa-solid fa-user-group"></i></div>
+                            <div class="task-title-text">
+                                <h2>5. Отметка о встрече с конкретным коллегой</h2>
+                                <p>Суть: Новичок подтверждает, что встретился / созвонился. Можно запросить подтверждение от того человека.</p>
+                            </div>
+                        </div>
+
+                        <div class="task-details">
+                            <h3>Детали задания</h3>
+                            
+                            <div class="detail-row">
+                                <div class="detail-icon"><i class="fa-regular fa-id-card"></i></div>
+                                <div class="detail-text">
+                                    <span class="detail-label">Необходимый человек</span>
+                                    <div class="detail-person">
+                                        <div class="person-avatar-placeholder">ИИ</div>
+                                        <span class="person-name">Иванов И.И.</span>
+                                        <span class="person-role">Ментор</span>
+                                    </div>
+                                </div>
+                                <div class="detail-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                            </div>
+
+                            <div class="detail-row">
+                                <div class="detail-icon"><i class="fa-regular fa-clock"></i></div>
+                                <div class="detail-text">
+                                    <span class="detail-label">Требуется подтверждение выбранного сотрудника</span>
+                                    <span class="detail-desc">Иванов И.И. получит уведомление и должен подтвердить встречу</span>
+                                </div>
+                                <div class="detail-badge">2 дн</div>
+                            </div>
+
+                            <div class="detail-row">
+                                <div class="detail-icon"><i class="fa-regular fa-circle-check"></i></div>
+                                <div class="detail-text">
+                                    <span class="detail-label">Обязательность встречи</span>
+                                </div>
+                                <div class="detail-badge">да</div>
+                            </div>
+
+                            <div class="detail-row">
+                                <div class="detail-icon"><i class="fa-regular fa-comment"></i></div>
+                                <div class="detail-text">
+                                    <span class="detail-label">Комментарий к заданию</span>
+                                    <span class="detail-desc">Будет полезно обсудить рабочие процессы и ожидания от совместной работы.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment-section">
+                            <h3>Ваш комментарий</h3>
+                            <div class="comment-textarea-wrapper">
+                                <textarea placeholder="Опишите, как прошла встреча или что было обсуждено..."></textarea>
+                                <span class="char-count">0 / 1000</span>
+                            </div>
+                            <div class="file-attachment">
+                                <button class="attach-btn"><i class="fa-solid fa-paperclip"></i> Прикрепить файл</button>
+                                <span class="attach-hint">(необязательно)</span>
+                            </div>
+                        </div>
+
+                        <div class="task-footer">
+                            <div class="footer-note">
+                                <i class="fa-regular fa-circle-check"></i>
+                                <span>После сохранения комментария будет отправлен запрос на подтверждение встречи сотруднику Иванову И.И.</span>
+                            </div>
+                            <button class="btn-submit">Сохранить и отправить на подтверждение</button>
+                        </div>
+                    </div>
+                    <div class="task-sidebar">
+                        <div class="deadline-card">
+                            <div class="deadline-header">
+                                <h3>Сроки</h3>
+                            </div>
+                            <div class="deadline-item">
+                                <span class="deadline-label">Дедлайн</span>
+                                <span class="deadline-value">25 мая 2025</span>
+                                <span class="deadline-warning">(осталось 3 дня)</span>
+                            </div>
+                            <div class="deadline-item">
+                                <span class="deadline-label">Назначено</span>
+                                <span class="deadline-value">20 мая 2025</span>
+                            </div>
+                            <div class="deadline-item">
+                                <span class="deadline-label">Статус</span>
+                                <span class="deadline-status">В процессе</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
+
+        <div class="chat-bot">
+            <div class="bot-bubble">
+                <h4>NaumAI <span class="wave">👋</span></h4>
+                <p>Привет! Я NaumAI<br>Готов помочь на старте.<br>Задай вопрос в чате.</p>
+            </div>
+            <div class="bot-avatar">
+                <div class="bot-head"></div>
+                <div class="bot-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeMenuFunc() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+    </script>
+
+</body>
+</html>
