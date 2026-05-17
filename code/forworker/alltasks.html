@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naumen - Подробный план заданий</title>
+    <link rel="stylesheet" href="alltasks.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="top-bar">
+            <div class="logo">NAUMEN</div>
+            <div class="top-right">
+                <div class="profile-pill">
+                    <div class="avatar-circle"></div>
+                    <span>Мой профиль</span>
+                </div>
+                <button class="icon-btn"><i class="fa-regular fa-rectangle-list"></i></button>
+                <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="right-sidebar" id="sideMenu">
+            <button class="close-menu-btn" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><i class="fa-solid fa-users"></i> Справочник сотрудников</li>
+                    <li><i class="fa-solid fa-comment-dots"></i> Чат с NaumAI</li>
+                    <li><i class="fa-solid fa-circle-question"></i> Справка</li>
+                    <li><i class="fa-solid fa-gear"></i> Настройки сервиса</li>
+                </ul>
+                <div class="logout-item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-layout">
+            <main class="content-area">
+                
+                <div class="back-link-wrapper">
+                    <a href="#" class="back-link"><i class="fa-solid fa-arrow-left"></i> К главной</a>
+                </div>
+
+                <!-- Прогресс-бар -->
+                <div class="progress-card">
+                    <div class="progress-header">Текущий прогресс: 35%</div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 35%;"></div>
+                    </div>
+                </div>
+
+                <!-- Заголовок -->
+                <div class="page-header">
+                    <h1>Подробный план ближайших заданий</h1>
+                </div>
+
+                <div class="filter-row">
+                    <div class="select-wrapper">
+                        <select class="filter-select">
+                            <option value="all">Тип: Все</option>
+                            <option value="obligatory">Обязательное</option>
+                            <option value="meeting">Встреча</option>
+                            <option value="admin">Административное</option>
+                            <option value="development">Развитие</option>
+                        </select>
+                    </div>
+                    <div class="select-wrapper">
+                        <select class="filter-select">
+                            <option value="all">Статус: Все</option>
+                            <option value="not-started">Не начато</option>
+                            <option value="planned">Запланировано</option>
+                            <option value="in-progress">В процессе</option>
+                            <option value="done">Выполнено</option>
+                        </select>
+                    </div>
+                    <div class="select-wrapper">
+                        <select class="filter-select">
+                            <option value="all">Дедлайн: Все</option>
+                            <option value="today">Сегодня</option>
+                            <option value="week">Эта неделя</option>
+                            <option value="month">Этот месяц</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="tasks-table-wrapper">
+                    <div class="tasks-table">
+                        <div class="table-header-row">
+                            <div class="th-task">Задача</div>
+                            <div class="th-type">Тип</div>
+                            <div class="th-status">Статус</div>
+                            <div class="th-deadline">Дедлайн</div>
+                            <div class="th-comment">Комментарий</div>
+                            <div class="th-check"></div>
+                        </div>
+
+                        <div class="table-body">
+                            <!-- Строка 1 (Выполнена) -->
+                            <div class="table-row done">
+                                <div class="td-task">
+                                    <i class="fa-regular fa-folder-open task-icon"></i>
+                                    <span class="completed-text">Пройти модуль "Коммуникации"</span>
+                                </div>
+                                <div class="td-type"><span class="badge-orange">Обязательное</span></div>
+                                <div class="td-status"><span class="badge-green">Выполнено</span></div>
+                                <div class="td-deadline">20.05.2024</div>
+                                <div class="td-comment">Пожалуйста, уделите особое внимание разделу о невербальной коммуникации. Это критично для вашей роли.</div>
+                                <div class="td-check"><input type="checkbox" class="task-check" checked></div>
+                            </div>
+
+                            <!-- Строка 2 -->
+                            <div class="table-row">
+                                <div class="td-task">
+                                    <i class="fa-regular fa-calendar task-icon"></i>
+                                    <span>Встреча с HR (обсуждение недели)</span>
+                                </div>
+                                <div class="td-type"><span class="badge-gray">Встреча</span></div>
+                                <div class="td-status"><span class="badge-light">Запланировано</span></div>
+                                <div class="td-deadline">18.05.2024, 14:00</div>
+                                <div class="td-comment">
+                                    Встреча в кабинете 301. Обсудим ваши первые успехи и планы на следующую неделю. 
+                                    <a href="#" class="link-attachment"><i class="fa-solid fa-link"></i> Link</a>
+                                </div>
+                                <div class="td-check"><input type="checkbox" class="task-check"></div>
+                            </div>
+
+                            <!-- Строка 3 -->
+                            <div class="table-row">
+                                <div class="td-task">
+                                    <i class="fa-regular fa-file-lines task-icon"></i>
+                                    <span>Заполнить анкету новичка</span>
+                                </div>
+                                <div class="td-type"><span class="badge-orange">Административное</span></div>
+                                <div class="td-status"><span class="badge-yellow">В процессе</span></div>
+                                <div class="td-deadline">25.05.2024</div>
+                                <div class="td-comment">Анкета во вложении в письме от HR. Просим заполнить до конца недели.</div>
+                                <div class="td-check"><input type="checkbox" class="task-check"></div>
+                            </div>
+
+                            <!-- Строка 4 -->
+                            <div class="table-row">
+                                <div class="td-task">
+                                    <i class="fa-regular fa-circle-play task-icon"></i>
+                                    <span>Посмотреть видео-экскурсию по офису</span>
+                                </div>
+                                <div class="td-type"><span class="badge-gray">Развитие</span></div>
+                                <div class="td-status"><span class="badge-gray-light">Доступно всегда</span></div>
+                                <div class="td-deadline">Постоянно</div>
+                                <div class="td-comment">Рекомендуем посмотреть, чтобы лучше ориентироваться в нашем офисе.</div>
+                                <div class="td-check"><input type="checkbox" class="task-check"></div>
+                            </div>
+
+                            <!-- Строка 5 (Выполнена) -->
+                            <div class="table-row done">
+                                <div class="td-task">
+                                    <i class="fa-regular fa-circle-check task-icon"></i>
+                                    <span class="completed-text">Изучить регламент компании</span>
+                                </div>
+                                <div class="td-type"><span class="badge-orange">Обязательное</span></div>
+                                <div class="td-status"><span class="badge-green">Выполнено</span></div>
+                                <div class="td-deadline">15.05.2024</div>
+                                <div class="td-comment">Ознакомьтесь с основными правилами и нормами компании.</div>
+                                <div class="td-check"><input type="checkbox" class="task-check" checked></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <div class="chat-bot">
+            <div class="bot-bubble">
+                <h4>NaumAI <span class="wave">👋</span></h4>
+                <p>Привет! Твой подробный план задач готов. Обрати внимание на дедлайны!</p>
+            </div>
+            <div class="bot-avatar">
+                <div class="bot-head"></div>
+                <div class="bot-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeMenuFunc() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+    </script>
+
+</body>
+</html>
