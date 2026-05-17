@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naumen - Профиль куратора</title>
+    <link rel="stylesheet" href="user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="top-bar">
+            <div class="logo">NAUMEN</div>
+            <div class="top-right">
+                <div class="profile-pill">
+                    <div class="avatar-circle"></div>
+                    <span>Мой профиль</span>
+                </div>
+                <button class="icon-btn"><i class="fa-regular fa-rectangle-list"></i></button>
+                <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="right-sidebar" id="sideMenu">
+            <button class="close-menu-btn" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><i class="fa-solid fa-users"></i> Справочник сотрудников</li>
+                    <li><i class="fa-solid fa-comment-dots"></i> Чат с NaumAI</li>
+                    <li><i class="fa-solid fa-circle-question"></i> Справка</li>
+                    <li><i class="fa-solid fa-gear"></i> Настройки сервиса</li>
+                </ul>
+                <div class="logout-item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-layout">
+            <main class="content-area">
+                
+                <div class="back-link-wrapper">
+                    <a href="#" class="back-link"><i class="fa-solid fa-arrow-left"></i> К главной</a>
+                </div>
+
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar" id="profileAvatar">
+                            <span class="initials">СЕ</span>
+                            <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
+                            <button class="change-photo-btn" id="changePhotoBtn">
+                                <i class="fa-solid fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-name">Смирнова Екатерина Игоревна</div>
+                            <div class="profile-role">HR-менеджер / Куратор</div>
+                            <div class="profile-dept">HR-отдел</div>
+                            <div class="profile-tenure">Стаж в компании: 3 года 6 месяцев</div>
+                            <div class="profile-contacts">
+                                <div class="contact-item">
+                                    <i class="fa-regular fa-envelope"></i>
+                                    <span>e.smirnova@company.ru</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <span>+7 (999) 987-65-43</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-settings">
+                            <i class="fa-solid fa-gear"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="achievements-section">
+                    <div class="section-header">
+                        <div class="section-label">Достижения</div>
+                        <a href="#" class="all-achievements-btn">Все достижения</a>
+                    </div>
+                    <div class="achievements-grid">
+                        <div class="achievement-item">
+                            <div class="ach-icon"><i class="fa-solid fa-circle"></i></div>
+                            <div class="ach-content">
+                                <div class="ach-title">3 года 6 месяцев</div>
+                                <div class="ach-sub">в компании</div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right ach-arrow"></i>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="ach-icon"><i class="fa-solid fa-circle"></i></div>
+                            <div class="ach-content">
+                                <div class="ach-title">Завершено 25</div>
+                                <div class="ach-sub">проектов</div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right ach-arrow"></i>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="ach-icon"><i class="fa-solid fa-circle"></i></div>
+                            <div class="ach-content">
+                                <div class="ach-title">Сертификат Agile</div>
+                                <div class="ach-sub">Professional</div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right ach-arrow"></i>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="ach-icon"><i class="fa-solid fa-circle"></i></div>
+                            <div class="ach-content">
+                                <div class="ach-title">Наставник года</div>
+                                <div class="ach-sub">2024</div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right ach-arrow"></i>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="bottom-grid">
+                  <div class="org-structure">
+                        <div class="section-title">Структура подчинения</div>
+                        
+                        <div class="org-manager">
+                            <div class="org-label">Руководитель</div>
+                            <div class="org-person">
+                                <div class="org-avatar">ИА</div>
+                                <div class="org-info">
+                                    <div class="org-name">Иванов Александр Петрович</div>
+                                    <div class="org-role">Директор по персоналу</div>
+                                </div>
+                                <i class="fa-solid fa-arrow-right org-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="org-team">
+                            <div class="org-label">Моя команда</div>
+                            <div class="team-avatars">
+                                <div class="team-avatar">АИ</div>
+                                <div class="team-avatar">ПА</div>
+                                <div class="team-avatar">СА</div>
+                                <div class="team-avatar">КМ</div>
+                                <div class="team-avatar">ПО</div>
+                                <div class="team-more">+3</div>
+                                <div class="team-count">8 сотрудников</div>
+                                <i class="fa-solid fa-arrow-right team-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="adaptation-progress">
+                        <div class="section-title">Курируемые сотрудники</div>
+                        
+                        <div class="employee-progress-list">
+                            <div class="emp-progress-item">
+                                <div class="emp-progress-info">
+                                    <div class="emp-progress-name">Иванова Анна Сергеевна</div>
+                                    <div class="emp-progress-role">Старший менеджер проектов</div>
+                                </div>
+                                <div class="emp-progress-bar">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar-fill" style="width: 75%;"></div>
+                                    </div>
+                                    <span class="progress-percent">75%</span>
+                                </div>
+                            </div>
+
+                            <div class="emp-progress-item">
+                                <div class="emp-progress-info">
+                                    <div class="emp-progress-name">Петров Алексей Дмитриевич</div>
+                                    <div class="emp-progress-role">Системный аналитик</div>
+                                </div>
+                                <div class="emp-progress-bar">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar-fill" style="width: 50%;"></div>
+                                    </div>
+                                    <span class="progress-percent">50%</span>
+                                </div>
+                            </div>
+
+                            <div class="emp-progress-item">
+                                <div class="emp-progress-info">
+                                    <div class="emp-progress-name">Сидоров Алексей Дмитриевич</div>
+                                    <div class="emp-progress-role">Разработчик</div>
+                                </div>
+                                <div class="emp-progress-bar">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar-fill" style="width: 25%;"></div>
+                                    </div>
+                                    <span class="progress-percent">25%</span>
+                                </div>
+                            </div>
+
+                            <div class="emp-progress-item">
+                                <div class="emp-progress-info">
+                                    <div class="emp-progress-name">Кузнецова Мария Олеговна</div>
+                                    <div class="emp-progress-role">Маркетолог</div>
+                                </div>
+                                <div class="emp-progress-bar">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar-fill" style="width: 100%;"></div>
+                                    </div>
+                                    <span class="progress-percent">100%</span>
+                                </div>
+                            </div>
+                            <div class="emp-progress-item">
+                                <div class="emp-progress-info">
+                                    <div class="emp-progress-name">Попова Ольга Владимировна</div>
+                                    <div class="emp-progress-role">HR-менеджер</div>
+                                </div>
+                                <div class="emp-progress-bar">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar-fill" style="width: 88%;"></div>
+                                    </div>
+                                    <span class="progress-percent">88%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-note">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    <span>Данные обновляются каждый понедельник</span>
+                </div>
+
+            </main>
+        </div>
+
+        <div class="chat-bot">
+            <div class="bot-bubble">
+                <h4>NaumAI <span class="wave">👋</span></h4>
+                <p>Привет! Я NaumAI<br>Готов помочь на старте.<br>Задай вопрос в чате.</p>
+            </div>
+            <div class="bot-avatar">
+                <div class="bot-head"></div>
+                <div class="bot-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeMenuFunc() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', openMenu);
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+
+        const changePhotoBtn = document.getElementById('changePhotoBtn');
+        const avatarUpload = document.getElementById('avatarUpload');
+        const profileAvatar = document.getElementById('profileAvatar');
+
+        changePhotoBtn.addEventListener('click', function() {
+            avatarUpload.click();
+        });
+
+        avatarUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    profileAvatar.style.backgroundImage = `url(${event.target.result})`;
+                    profileAvatar.style.backgroundSize = 'cover';
+                    profileAvatar.style.backgroundPosition = 'center';
+                    profileAvatar.querySelector('.initials').style.display = 'none';
+                    profileAvatar.querySelector('.change-photo-btn').style.display = 'flex';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
+</body>
+</html>
