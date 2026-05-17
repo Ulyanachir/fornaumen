@@ -657,7 +657,3 @@ body {
     background: linear-gradient(135deg, #e65a20, #cc5119);
     box-shadow: 0 4px 10px rgba(204, 81, 25, 0.3);
 }
-
-.orange-btn.completed:hover {
-    background: linear-gradient(135deg, #cc5119, #b34714);
-}
