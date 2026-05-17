@@ -103,7 +103,6 @@
                     </div>
                 </div>
 
-
                 <div class="next-btn-wrapper">
                     <button class="circle-arrow"><i class="fa-solid fa-arrow-right"></i></button>
                 </div>
@@ -164,6 +163,13 @@
         function closeMenuFunc() {
             sideMenu.classList.remove('active');
             overlay.classList.remove('active');
+        }
+
+        function logoutUser() {
+            sessionStorage.clear();
+            localStorage.clear();
+            
+            window.location.replace('../index.html');
         }
 
         menuToggle.addEventListener('click', openMenu);
