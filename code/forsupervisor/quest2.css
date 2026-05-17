@@ -8,7 +8,7 @@
 }
 
 * {
-    box-sizing: border-box;а
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -202,7 +202,6 @@ body {
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-
 .card-icon-wrapper {
     width: 60px;
     height: 60px;
@@ -242,17 +241,17 @@ body {
 }
 
 .card-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #333;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: block;
+    color: transparent;
     text-decoration: none;
     cursor: pointer;
-    font-size: 15px;
 }
 
 .card-link:hover {
-    color: var(--orange);
+    background: transparent;
 }
 
 .chat-bot {
