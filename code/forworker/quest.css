@@ -652,3 +652,11 @@ body {
 .section-title {
     transition: all 0.3s ease;
 }
+
+.orange-btn.completed {
+    background: #e65a20;
+}
+
+.orange-btn.completed:hover {
+    background: #cc5119;
+}
