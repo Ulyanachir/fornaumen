@@ -254,6 +254,26 @@ body {
     background: transparent;
 }
 
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+    width: 100%;
+}
+
+.logo-link:hover {
+    color: var(--orange);
+}
+
+.logo-link i {
+    width: 20px;
+    text-align: center;
+}
+
 .chat-bot {
     position: fixed;
     bottom: 30px;
@@ -302,23 +322,4 @@ body {
     bottom: 0;
     right: 0;
     border: 2px solid white;
-}
-.logo-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #333;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 15px;
-    width: 100%;
-}
-
-.logo-link:hover {
-    color: var(--orange);
-}
-
-.logo-link i {
-    width: 20px;
-    text-align: center;
 }
